@@ -23,6 +23,10 @@ import projectNetwork from "@assets/generated_images/modern_office_network_infra
 import projectAV from "@assets/generated_images/commercial_building_smart_lighting_and_av_installation_photo.png";
 import projectSecurity from "@assets/generated_images/industrial_facility_security_and_cctv_installation_photo.png";
 import projectSmartCity from "@assets/generated_images/smart_city_traffic_monitoring_system_installation_photo.png";
+import projectHealthcare from "@assets/generated_images/modern_health_clinic_digital_medical_system_installation_photo.png";
+import projectEducation from "@assets/generated_images/university_smart_lecture_hall_av_and_lighting_project_photo.png";
+import projectRetail from "@assets/generated_images/luxury_retail_smart_store_security_and_av_project_photo.png";
+import projectDataCenter from "@assets/generated_images/large_data_center_networking_and_server_setup_photo.png";
 
 const testimonials = [
   { name: "Ahmed Al-Sayed", role: "IT Director, Urban Tech", content: "VIP Networks transformed our security infrastructure. Their attention to detail and technical expertise is unmatched." },
@@ -262,7 +266,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight uppercase">Completed <span className="text-[#3b82f6]">Projects</span></h2>
-            <p className="text-white/70 text-lg">A showcase of our successfully delivered infrastructure and security solutions.</p>
+            <p className="text-white text-lg">A showcase of our successfully delivered infrastructure and security solutions.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -271,6 +275,10 @@ export default function Home() {
               { title: "Smart Hotel AV", img: projectAV, location: "Grand Regency" },
               { title: "Industrial Security", img: projectSecurity, location: "Manufacturing Hub" },
               { title: "Smart City Traffic", img: projectSmartCity, location: "Urban Center" },
+              { title: "Healthcare Systems", img: projectHealthcare, location: "Global Medical Center" },
+              { title: "Smart Education AV", img: projectEducation, location: "National University" },
+              { title: "Retail Tech Solutions", img: projectRetail, location: "Luxury Mall" },
+              { title: "Cloud Data Center", img: projectDataCenter, location: "Tech Park" },
             ].map((project, idx) => (
               <motion.div
                 key={idx}
