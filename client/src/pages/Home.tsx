@@ -175,10 +175,10 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {services.slice(0, 6).map((service, idx) => (
-              <ServiceCard key={idx} {...service} delay={idx * 0.1} />
+            {services.map((service, idx) => (
+              <ServiceCard key={idx} {...service} delay={idx * 0.1} showDescription={false} />
             ))}
           </motion.div>
 
