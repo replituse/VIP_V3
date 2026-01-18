@@ -41,7 +41,7 @@ export default function Home() {
 
         <div className="container relative z-20 px-4 md:px-6 text-center">
           <div className="flex flex-col items-center">
-            <div className="relative w-64 h-64 md:w-96 md:h-96 -mb-4 md:-mb-8">
+            <div className="relative w-64 h-64 md:w-96 md:h-96 -mb-8 md:-mb-16">
               <img 
                 src={logo} 
                 alt="VIP Networks" 
