@@ -54,8 +54,8 @@ export function Navbar() {
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
               <span 
-                className={`text-sm font-semibold font-sans uppercase tracking-widest cursor-pointer transition-colors relative py-1
-                  ${location === link.href ? "text-white" : "text-white/80 hover:text-white"}
+                className={`text-base font-semibold font-sans uppercase tracking-widest cursor-pointer transition-colors relative py-1
+                  text-white
                   group/nav
                 `}
               >
