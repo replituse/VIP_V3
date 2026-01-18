@@ -91,77 +91,54 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-poppins text-white">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 font-poppins text-white leading-tight uppercase tracking-tighter">
                 Redefining Security & <br />
-                <span className="text-primary">Connectivity</span>
+                <span className="text-[#3b82f6]">Connectivity</span>
               </h2>
-              <p className="text-muted-foreground mb-6 text-lg">
+              <p className="text-white/60 mb-8 text-lg max-w-xl">
                 VIP Networks specializes in delivering top-tier IT infrastructure and security solutions. From enterprise networking to advanced surveillance, we build systems that safeguard your assets and streamline your operations.
               </p>
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4 mb-10">
                 {["Expert installation & maintenance", "24/7 Technical Support", "Customized Enterprise Solutions"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-white font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-accent" />
+                  <li key={i} className="flex items-center gap-3 text-white/90 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-[#3b82f6]" />
                     {item}
                   </li>
                 ))}
               </ul>
               <Link href="/about">
-                <span className="text-primary font-bold uppercase tracking-wider text-sm hover:underline cursor-pointer">
+                <span className="text-[#3b82f6] font-bold uppercase tracking-widest text-sm hover:brightness-125 cursor-pointer transition-all border-b-2 border-[#3b82f6] pb-1">
                   Read More About Us
                 </span>
               </Link>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative w-full"
+              className="relative w-full h-full flex items-center"
             >
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent opacity-20 blur-2xl rounded-full" />
-              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
-                <div className="flex flex-col gap-6 mt-8">
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
-                    <div className="aspect-video overflow-hidden">
-                      <img src={generatedSecurity} alt="Security" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute -inset-10 bg-[#3b82f6]/10 blur-[120px] rounded-full pointer-events-none" />
+              <div className="relative grid grid-cols-2 gap-4 md:gap-6 w-full">
+                {[
+                  { title: "Security", img: generatedSecurity, desc: "Comprehensive protection for physical and digital assets." },
+                  { title: "Network", img: generatedNetwork, desc: "High-speed infrastructure for modern business." },
+                  { title: "Access", img: generatedAccess, desc: "Smart control systems for regulated entry." },
+                  { title: "Power", img: generatedPower, desc: "Uninterrupted power solutions for continuity." }
+                ].map((card, i) => (
+                  <div key={i} className={`bg-[#0d1526] rounded-3xl border border-white/5 shadow-2xl overflow-hidden group flex flex-col aspect-[4/5] md:aspect-[3/4] ${i % 2 === 0 ? 'mt-0' : 'mt-12'}`}>
+                    <div className="h-[70%] overflow-hidden relative">
+                      <img src={card.img} alt={card.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] to-transparent opacity-20" />
                     </div>
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="font-bold text-xl text-white font-poppins">Security</h3>
-                      <p className="text-sm text-muted-foreground mt-2">Comprehensive protection for physical and digital assets.</p>
-                    </div>
-                  </div>
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
-                    <div className="aspect-video overflow-hidden">
-                      <img src={generatedAccess} alt="Access" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="font-bold text-xl text-white font-poppins">Access</h3>
-                      <p className="text-sm text-muted-foreground mt-2">Smart control systems for regulated entry.</p>
+                    <div className="h-[30%] p-5 md:p-8 flex flex-col justify-center">
+                      <h3 className="font-bold text-xl md:text-2xl text-white font-poppins uppercase tracking-wider mb-2">{card.title}</h3>
+                      <p className="text-xs md:text-sm text-white/50 leading-relaxed line-clamp-2">{card.desc}</p>
                     </div>
                   </div>
-                </div>
-                <div className="flex flex-col gap-6">
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
-                    <div className="aspect-video overflow-hidden">
-                      <img src={generatedNetwork} alt="Network" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="font-bold text-xl text-white font-poppins">Network</h3>
-                      <p className="text-sm text-muted-foreground mt-2">High-speed infrastructure for modern business.</p>
-                    </div>
-                  </div>
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
-                    <div className="aspect-video overflow-hidden">
-                      <img src={generatedPower} alt="Power" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="font-bold text-xl text-white font-poppins">Power</h3>
-                      <p className="text-sm text-muted-foreground mt-2">Uninterrupted power solutions for continuity.</p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </motion.div>
           </div>
