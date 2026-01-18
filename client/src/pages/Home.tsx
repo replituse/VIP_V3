@@ -75,72 +75,85 @@ export default function Home() {
       </section>
 
       {/* INTRO / ABOUT PREVIEW */}
-      <section className="py-24 bg-secondary/50 relative">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-32 bg-background relative overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+          <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full" />
+          <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-accent/5 blur-[100px] rounded-full" />
+        </div>
+        
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Redefining Security & <br />
-                <span className="text-primary">Connectivity</span>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-[1px] bg-primary" />
+                <span className="text-primary text-xs font-bold uppercase tracking-[0.3em]">Corporate Excellence</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-[1.1] tracking-tight">
+                Redefining Security <br />
+                <span className="text-primary font-light italic">& Connectivity</span>
               </h2>
-              <p className="text-muted-foreground mb-6 text-lg">
-                VIP Networks specializes in delivering top-tier IT infrastructure and security solutions. From enterprise networking to advanced surveillance, we build systems that safeguard your assets and streamline your operations.
+              <p className="text-muted-foreground mb-10 text-lg leading-relaxed max-w-xl font-medium">
+                VIP Networks delivers high-performance IT infrastructure and elite security solutions. We specialize in engineering resilient, scalable environments for the modern enterprise.
               </p>
-              <ul className="space-y-4 mb-8">
-                {["Expert installation & maintenance", "24/7 Technical Support", "Customized Enterprise Solutions"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-white font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-accent" />
-                    {item}
-                  </li>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+                {[
+                  { title: "Engineering", desc: "Precision-grade installations." },
+                  { title: "Support", desc: "24/7 elite technical response." },
+                  { title: "Innovation", desc: "Future-ready tech architecture." },
+                  { title: "Reliability", desc: "Mission-critical uptime." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4 items-start">
+                    <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-1">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground font-medium">{item.desc}</p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
+              
               <Link href="/about">
-                <span className="text-primary font-bold uppercase tracking-wider text-sm hover:underline cursor-pointer">
-                  Read More About Us
-                </span>
+                <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white font-bold uppercase tracking-widest text-xs transition-all flex items-center gap-3">
+                  Our Corporate Profile
+                  <motion.span animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 2 }}>→</motion.span>
+                </button>
               </Link>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent opacity-20 blur-2xl rounded-full" />
-              <div className="relative grid grid-cols-2 gap-4">
-                <div className="space-y-4 mt-8">
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Shield className="w-10 h-10 text-primary mb-4" />
-                    <h3 className="font-bold text-lg text-white">Security</h3>
-                    <p className="text-sm text-muted-foreground mt-2">Comprehensive protection for physical and digital assets.</p>
-                  </div>
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Lock className="w-10 h-10 text-accent mb-4" />
-                    <h3 className="font-bold text-lg text-white">Access</h3>
-                    <p className="text-sm text-muted-foreground mt-2">Smart control systems for regulated entry.</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Network className="w-10 h-10 text-blue-400 mb-4" />
-                    <h3 className="font-bold text-lg text-white">Network</h3>
-                    <p className="text-sm text-muted-foreground mt-2">High-speed infrastructure for modern business.</p>
-                  </div>
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Zap className="w-10 h-10 text-yellow-500 mb-4" />
-                    <h3 className="font-bold text-lg text-white">Power</h3>
-                    <p className="text-sm text-muted-foreground mt-2">Uninterrupted power solutions for continuity.</p>
-                  </div>
-                </div>
+            <div className="relative">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+                {[
+                  { icon: Shield, title: "Security", desc: "Enterprise-grade physical and digital asset protection." },
+                  { icon: Network, title: "Network", desc: "High-speed infrastructure for mission-critical operations." },
+                  { icon: Lock, title: "Access", desc: "Biometric and smart control systems for regulated entry." },
+                  { icon: Zap, title: "Power", desc: "Industrial-scale uninterruptible power solutions." }
+                ].map((card, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    className="group bg-background p-10 hover:bg-white/[0.02] transition-colors duration-500"
+                  >
+                    <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-8 group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-500 shadow-inner">
+                      <card.icon className="w-6 h-6 text-white group-hover:text-primary transition-colors duration-500" />
+                    </div>
+                    <h3 className="font-bold text-lg text-white mb-3 tracking-[0.1em] uppercase">{card.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-medium uppercase tracking-wider opacity-70 group-hover:opacity-100 transition-opacity">
+                      {card.desc}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -153,8 +166,13 @@ export default function Home() {
 
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black bg-white inline-block px-8 py-4 rounded-full">Our Core Solutions</h2>
-            <p className="text-muted-foreground text-lg">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-[1px] bg-primary" />
+              <span className="text-primary text-xs font-bold uppercase tracking-[0.3em]">Our Expertise</span>
+              <div className="w-8 h-[1px] bg-primary" />
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tighter uppercase">Our Core Solutions</h2>
+            <p className="text-muted-foreground text-lg font-medium">
               We offer end-to-end technology services designed to enhance efficiency and ensure security across your organization.
             </p>
           </div>
