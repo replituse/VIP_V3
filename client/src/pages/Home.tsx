@@ -7,10 +7,10 @@ import { CheckCircle2, Shield, Network, Zap, Lock } from "lucide-react";
 import { services } from "@/lib/services-data";
 import logo from "@assets/Untitled_design_(4)_1768732028230.png";
 import videoBg from "@assets/11104160-hd_1920_1080_25fps_1768727591204.mp4";
-import generatedSecurity from "@assets/generated_images/high-tech_digital_security_shield_illustration.png";
-import generatedAccess from "@assets/generated_images/futuristic_biometric_access_control_system.png";
-import generatedNetwork from "@assets/generated_images/global_network_infrastructure_connectivity_hub.png";
-import generatedPower from "@assets/generated_images/industrial_power_energy_management_system.png";
+import generatedSecurity from "@assets/generated_images/professional_cctv_surveillance_camera_system.png";
+import generatedAccess from "@assets/generated_images/electronic_office_key_card_reader.png";
+import generatedNetwork from "@assets/generated_images/data_center_server_rack_networking_cables.png";
+import generatedPower from "@assets/generated_images/industrial_ups_power_backup_system.png";
 
 export default function Home() {
   const containerVariants = {
@@ -114,45 +114,45 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="relative w-full"
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent opacity-20 blur-2xl rounded-full" />
-              <div className="relative grid grid-cols-2 gap-4">
-                <div className="space-y-4 mt-8">
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
-                    <div className="h-48 overflow-hidden">
+              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
+                <div className="flex flex-col gap-6 mt-8">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
+                    <div className="aspect-video overflow-hidden">
                       <img src={generatedSecurity} alt="Security" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col">
                       <h3 className="font-bold text-xl text-white font-poppins">Security</h3>
                       <p className="text-sm text-muted-foreground mt-2">Comprehensive protection for physical and digital assets.</p>
                     </div>
                   </div>
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
-                    <div className="h-48 overflow-hidden">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
+                    <div className="aspect-video overflow-hidden">
                       <img src={generatedAccess} alt="Access" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col">
                       <h3 className="font-bold text-xl text-white font-poppins">Access</h3>
                       <p className="text-sm text-muted-foreground mt-2">Smart control systems for regulated entry.</p>
                     </div>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
-                    <div className="h-48 overflow-hidden">
+                <div className="flex flex-col gap-6">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
+                    <div className="aspect-video overflow-hidden">
                       <img src={generatedNetwork} alt="Network" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col">
                       <h3 className="font-bold text-xl text-white font-poppins">Network</h3>
                       <p className="text-sm text-muted-foreground mt-2">High-speed infrastructure for modern business.</p>
                     </div>
                   </div>
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
-                    <div className="h-48 overflow-hidden">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full">
+                    <div className="aspect-video overflow-hidden">
                       <img src={generatedPower} alt="Power" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col">
                       <h3 className="font-bold text-xl text-white font-poppins">Power</h3>
                       <p className="text-sm text-muted-foreground mt-2">Uninterrupted power solutions for continuity.</p>
                     </div>
