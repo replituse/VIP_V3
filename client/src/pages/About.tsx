@@ -1,172 +1,99 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { motion, useScroll, useSpring, useTransform, useInView } from "framer-motion";
-import { Award, Target, Users, Zap, Shield, Cpu, Globe, Rocket } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { Shield, Target, Zap, Award, CheckCircle2, Building2, Users2, Rocket } from "lucide-react";
+import stockDataCenter from "@assets/stock_images/modern_datacenter_se_70373e6b.jpg";
+import stockMeeting from "@assets/stock_images/professional_busines_c2a75c63.jpg";
+import stockSecurity from "@assets/stock_images/high-tech_security_c_fccaba08.jpg";
+import stockNetwork from "@assets/stock_images/advanced_networking__5e2a61e1.jpg";
 
-function Counter({ value, suffix = "" }: { value: string; suffix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const targetValue = parseInt(value.replace(/\D/g, ""));
+const stats = [
+  { label: "Years Experience", value: "10+", icon: Award },
+  { label: "Projects Delivered", value: "500+", icon: Rocket },
+  { label: "Certified Engineers", value: "25+", icon: Users2 },
+  { label: "Client Satisfaction", value: "99%", icon: CheckCircle2 },
+];
 
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = targetValue;
-      const duration = 2000;
-      const increment = end / (duration / 16);
-      
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-      return () => clearInterval(timer);
-    }
-  }, [isInView, targetValue]);
-
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
-}
-
-function NetworkParticles() {
-  const [particles, setParticles] = useState<any[]>([]);
-
-  useEffect(() => {
-    setParticles([...Array(20)].map((_, i) => ({
-      id: i,
-      left: Math.random() * 100 + "%",
-      initialY: Math.random() * 100 + "vh",
-      scale: Math.random() * 0.3 + 0.2,
-      duration: Math.random() * 30 + 30,
-      delay: Math.random() * -60
-    })));
-  }, []);
-
-  return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-50">
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute text-primary/10"
-          style={{ left: p.left }}
-          initial={{ 
-            y: p.initialY,
-            rotate: 0,
-            scale: p.scale,
-            opacity: 0
-          }}
-          animate={{ 
-            y: ["110vh", "-10vh"],
-            rotate: 360,
-            opacity: [0, 1, 1, 0]
-          }}
-          transition={{ 
-            duration: p.duration,
-            repeat: Infinity,
-            ease: "linear",
-            delay: p.delay
-          }}
-        >
-          <div className="relative">
-            <Globe className="w-16 h-16 md:w-24 md:h-24 blur-[0.5px]" />
-            <motion.div 
-              className="absolute inset-0 bg-primary/20 rounded-full blur-xl"
-              animate={{ opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
+const values = [
+  {
+    title: "Technical Excellence",
+    desc: "We pride ourselves on staying at the forefront of IT innovation, ensuring our clients receive the most advanced and reliable infrastructure solutions available in the industry.",
+    image: stockNetwork,
+  },
+  {
+    title: "Client-Centric Approach",
+    desc: "Your success is our priority. We work closely with every partner to design bespoke systems that address unique operational challenges and drive business growth.",
+    image: stockMeeting,
+  },
+  {
+    title: "Uncompromising Security",
+    desc: "In an increasingly complex digital landscape, we provide robust, multi-layered security frameworks that protect both physical assets and sensitive digital information.",
+    image: stockSecurity,
+  },
+];
 
 export default function About() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  const stats = [
-    { label: "Years Experience", value: "10", suffix: "+" },
-    { label: "Projects Completed", value: "500", suffix: "+" },
-    { label: "Happy Clients", value: "200", suffix: "+" },
-    { label: "Team Members", value: "25", suffix: "+" },
-  ];
-
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
-      <NetworkParticles />
+    <div className="min-h-screen bg-[#050a15] text-white overflow-x-hidden">
       <Navbar />
 
-      {/* Header */}
-      <div className="pt-32 pb-20 bg-secondary relative overflow-hidden">
-        {/* Horizontal Full Heading Cover Animation */}
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-background/60 z-10" />
-          <div 
-            className="w-full h-full bg-cover bg-center opacity-30 animate-pulse"
-            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')` }}
+          <img 
+            src={stockDataCenter} 
+            alt="Data Center" 
+            className="w-full h-full object-cover opacity-20"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050a15]/80 via-[#050a15] to-[#050a15]" />
+        </div>
+
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
           <motion.div 
-            className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/20"
-            animate={{ x: ['-100%', '100%'] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-        
-        <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">About VIP Networks</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              We are a premier IT infrastructure provider dedicated to delivering robust, scalable, and secure technology solutions for businesses across India.
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h1 className="text-4xl md:text-7xl font-bold mb-8 uppercase tracking-tighter leading-tight font-poppins">
+              Pioneering the Future of <span className="text-[#3b82f6]">Infrastructure</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-light">
+              VIP Networks is India's leading system integrator, providing end-to-end IT, security, and networking solutions that empower modern enterprises.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Mission & Vision */}
-      <section className="py-20">
+      <section className="py-24 relative">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8">
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              className="bg-card p-10 rounded-3xl border border-white/5 relative overflow-hidden hover:border-primary/30 transition-colors"
+              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden"
             >
-              <Target className="w-12 h-12 text-primary mb-6" />
-              <h2 className="text-2xl font-bold mb-4">Our Mission 🎯</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To empower organizations with reliable, cutting-edge technology infrastructure that ensures security, connectivity, and efficiency. We strive to be the trusted partner that businesses rely on for their digital foundation.
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/10 transition-colors" />
+              <Target className="w-16 h-16 text-[#3b82f6] mb-8" />
+              <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins">Our Mission</h2>
+              <p className="text-white/60 text-lg leading-relaxed">
+                To empower organizations with reliable, cutting-edge technology infrastructure that ensures maximum security, seamless connectivity, and operational efficiency. We strive to be the most trusted technical partner for businesses across the region.
               </p>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              className="bg-card p-10 rounded-3xl border border-white/5 relative overflow-hidden hover:border-accent/30 transition-colors"
+              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden"
             >
-              <Zap className="w-12 h-12 text-accent mb-6" />
-              <h2 className="text-2xl font-bold mb-4">Our Vision ⚡</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To be the leading system integrator in the region, known for our technical excellence, customer-centric approach, and innovative solutions in security and networking.
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/10 transition-colors" />
+              <Zap className="w-16 h-16 text-[#3b82f6] mb-8" />
+              <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins">Our Vision</h2>
+              <p className="text-white/60 text-lg leading-relaxed">
+                To redefine the standards of system integration through technical excellence, innovation, and a relentless focus on customer success. We envision a future where every business operates on a resilient and intelligent digital foundation.
               </p>
             </motion.div>
           </div>
@@ -174,72 +101,89 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-primary/5 border-y border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="py-20 bg-[#0d1526]/50 border-y border-white/5 backdrop-blur-sm">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {stats.map((stat, i) => (
               <motion.div 
-                key={i} 
-                initial={{ opacity: 0, scale: 0.5 }}
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, type: "spring" }}
+                transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-display">
-                  <Counter value={stat.value} suffix={stat.suffix} />
+                <div className="w-16 h-16 mx-auto bg-[#3b82f6]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#3b82f6]/20">
+                  <stat.icon className="w-8 h-8 text-[#3b82f6]" />
                 </div>
-                <div className="text-primary text-sm uppercase tracking-widest font-semibold">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2 font-poppins tracking-tighter">{stat.value}</div>
+                <div className="text-white/40 uppercase tracking-widest text-xs font-bold">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-24">
+      {/* Core Values / Detailed Sections */}
+      <section className="py-32">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Choose Us? ✨</h2>
-            <p className="text-muted-foreground">
-              Our commitment to quality and service excellence sets us apart in the competitive IT landscape.
+          <div className="text-center max-w-3xl mx-auto mb-24">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 uppercase tracking-tighter font-poppins">
+              The VIP <span className="text-[#3b82f6]">Standard</span>
+            </h2>
+            <p className="text-white/60 text-lg">
+              Our approach combines decades of technical expertise with a commitment to delivering future-ready infrastructure.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Technical Expertise",
-                icon: <Cpu className="w-8 h-8 text-primary" />,
-                desc: "Our team consists of certified engineers with deep knowledge in security and networking protocols."
-              },
-              {
-                title: "Customized Solutions",
-                icon: <Globe className="w-8 h-8 text-accent" />,
-                desc: "We don't believe in one-size-fits-all. We design systems tailored to your specific operational needs."
-              },
-              {
-                title: "Dedicated Support",
-                icon: <Rocket className="w-8 h-8 text-blue-400" />,
-                desc: "Our relationship doesn't end at installation. We provide ongoing maintenance and rapid support."
-              }
-            ].map((item, i) => (
+          <div className="space-y-32">
+            {values.map((value, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-card border border-white/5 hover:border-primary/50 transition-colors text-center group"
+                className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-16`}
               >
-                <div className="w-16 h-16 mx-auto bg-secondary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
+                <div className="flex-1 space-y-8">
+                  <div className="inline-block px-6 py-2 bg-[#3b82f6]/10 rounded-full border border-[#3b82f6]/20 text-[#3b82f6] text-sm font-bold uppercase tracking-widest">
+                    Standard 0{i + 1}
+                  </div>
+                  <h3 className="text-3xl md:text-5xl font-bold uppercase tracking-tight font-poppins">{value.title}</h3>
+                  <p className="text-white/60 text-xl leading-relaxed font-light">
+                    {value.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+                <div className="flex-1 w-full aspect-video md:aspect-square overflow-hidden rounded-[3rem] border border-white/5 relative group">
+                  <img 
+                    src={value.image} 
+                    alt={value.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050a15]/60 to-transparent" />
+                </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 bg-[#3b82f6] relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-10">
+            <h2 className="text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter leading-tight font-poppins">
+              Build Your Digital <br /> Foundation with Us
+            </h2>
+            <p className="text-white/90 text-xl md:text-2xl font-light">
+              Experience the perfect blend of high-end security and seamless connectivity.
+            </p>
+            <div className="flex justify-center">
+              <button className="px-12 py-5 bg-white text-[#3b82f6] font-bold rounded-full shadow-2xl hover:scale-105 transition-transform uppercase tracking-widest text-lg font-poppins">
+                Connect With Experts
+              </button>
+            </div>
           </div>
         </div>
       </section>
