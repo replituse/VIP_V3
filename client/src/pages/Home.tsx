@@ -185,17 +185,15 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-        
+      <section className="py-12 bg-primary relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-poppins">Ready to Upgrade Your Infrastructure?</h2>
-          <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-blue-100 text-xl md:text-2xl font-semibold max-w-4xl mx-auto mb-10">
             Get in touch with our experts today for a customized quote tailored to your specific business needs.
           </p>
           <Link href="/contact">
             <button className="px-8 py-4 bg-white text-primary font-bold rounded-lg shadow-xl hover:scale-105 transition-transform uppercase tracking-wide cursor-pointer font-poppins">
-              Get Started Now
+              Connect with our Experts
             </button>
           </Link>
         </div>
