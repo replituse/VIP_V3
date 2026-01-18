@@ -187,8 +187,8 @@ export default function Home() {
       {/* CTA SECTION */}
       <section className="py-12 bg-primary relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-poppins">Ready to Upgrade Your Infrastructure?</h2>
-          <p className="text-white text-xl md:text-2xl font-semibold max-w-4xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#ffffff] mb-6 font-poppins">Ready to Upgrade Your Infrastructure?</h2>
+          <p className="text-[#ffffff] text-xl md:text-2xl font-semibold max-w-4xl mx-auto mb-10">
             Get in touch with our experts today for a customized quote tailored to your specific business needs.
           </p>
           <Link href="/contact">
