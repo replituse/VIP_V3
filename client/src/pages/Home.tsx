@@ -119,8 +119,8 @@ export default function Home() {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent opacity-20 blur-2xl rounded-full" />
               <div className="relative grid grid-cols-2 gap-4">
                 <div className="space-y-4 mt-8">
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
-                    <div className="h-40 overflow-hidden">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
+                    <div className="h-48 overflow-hidden">
                       <img src={generatedSecurity} alt="Security" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     <div className="p-6">
@@ -128,8 +128,8 @@ export default function Home() {
                       <p className="text-sm text-muted-foreground mt-2">Comprehensive protection for physical and digital assets.</p>
                     </div>
                   </div>
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
-                    <div className="h-40 overflow-hidden">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
+                    <div className="h-48 overflow-hidden">
                       <img src={generatedAccess} alt="Access" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     <div className="p-6">
@@ -139,8 +139,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
-                    <div className="h-40 overflow-hidden">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
+                    <div className="h-48 overflow-hidden">
                       <img src={generatedNetwork} alt="Network" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     <div className="p-6">
@@ -148,8 +148,8 @@ export default function Home() {
                       <p className="text-sm text-muted-foreground mt-2">High-speed infrastructure for modern business.</p>
                     </div>
                   </div>
-                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
-                    <div className="h-40 overflow-hidden">
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group">
+                    <div className="h-48 overflow-hidden">
                       <img src={generatedPower} alt="Power" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     <div className="p-6">
@@ -172,7 +172,7 @@ export default function Home() {
 
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black bg-white inline-block px-8 py-4 rounded-full">Our Core Solutions</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Our Core Solutions</h2>
             <p className="text-muted-foreground text-lg">
               We offer end-to-end technology services designed to enhance efficiency and ensure security across your organization.
             </p>
