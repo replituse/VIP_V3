@@ -60,12 +60,12 @@ export default function Home() {
             
             <div className="flex flex-row gap-3 md:gap-4 justify-center w-full max-w-[600px] px-2">
               <Link href="/services" className="flex-1">
-                <button className="w-full px-4 md:px-8 py-4 md:py-6 bg-white text-black font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all uppercase text-xs md:text-lg tracking-wider flex items-center justify-center cursor-pointer no-default-hover-elevate no-default-active-elevate whitespace-nowrap">
+                <button className="w-full px-4 md:px-8 py-4 md:py-3 bg-white text-black font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all uppercase text-xs md:text-lg tracking-wider flex items-center justify-center cursor-pointer no-default-hover-elevate no-default-active-elevate whitespace-nowrap">
                   Explore Solutions
                 </button>
               </Link>
               <Link href="/contact" className="flex-1">
-                <button className="w-full px-4 md:px-8 py-4 md:py-6 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all uppercase text-xs md:text-lg tracking-wider flex items-center justify-center cursor-pointer backdrop-blur-sm no-default-hover-elevate no-default-active-elevate whitespace-nowrap">
+                <button className="w-full px-4 md:px-8 py-4 md:py-3 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all uppercase text-xs md:text-lg tracking-wider flex items-center justify-center cursor-pointer backdrop-blur-sm no-default-hover-elevate no-default-active-elevate whitespace-nowrap">
                   Contact Us
                 </button>
               </Link>
