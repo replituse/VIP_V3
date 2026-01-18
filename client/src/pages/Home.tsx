@@ -164,7 +164,7 @@ export default function Home() {
 
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#3b82f6] font-poppins tracking-tight">Our Core Solutions</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Our Core <span className="text-[#3b82f6]">Solutions</span></h2>
             <p className="text-white text-lg">
               We offer end-to-end technology services designed to enhance efficiency and ensure security across your organization.
             </p>
@@ -184,8 +184,8 @@ export default function Home() {
 
           <div className="mt-16 text-center">
             <Link href="/services">
-              <button className="px-8 py-3 bg-secondary hover:bg-white/10 text-white border border-white/10 rounded-full font-bold uppercase text-sm tracking-wide transition-all cursor-pointer">
-                View All Services
+              <button className="px-8 py-3 bg-secondary hover:bg-white/10 text-white border border-white/10 rounded-full font-bold uppercase text-sm tracking-wide transition-all cursor-pointer flex items-center gap-2 mx-auto">
+                View All Services <span className="text-xl">→</span>
               </button>
             </Link>
           </div>
