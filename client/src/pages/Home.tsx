@@ -82,63 +82,74 @@ export default function Home() {
       </section>
 
       {/* INTRO / ABOUT PREVIEW */}
-      <section className="py-24 bg-secondary/50 relative">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-24 bg-[#050a15] relative overflow-hidden">
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="flex flex-col items-center text-center mb-16">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="w-full"
             >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 font-poppins text-white leading-tight uppercase tracking-tighter">
-                Redefining Security & <br />
-                <span className="text-[#3b82f6]">Connectivity</span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 font-poppins text-white leading-tight uppercase tracking-tighter">
+                Redefining Security & <span className="text-[#3b82f6]">Connectivity</span>
               </h2>
-              <p className="text-white/60 mb-8 text-lg max-w-xl">
+              <p className="text-white/60 mb-12 text-lg md:text-xl max-w-5xl mx-auto leading-relaxed">
                 VIP Networks specializes in delivering top-tier IT infrastructure and security solutions. From enterprise networking to advanced surveillance, we build systems that safeguard your assets and streamline your operations.
               </p>
-              <ul className="space-y-4 mb-10">
-                {["Expert installation & maintenance", "24/7 Technical Support", "Customized Enterprise Solutions"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-white/90 font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-[#3b82f6]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/about">
-                <span className="text-[#3b82f6] font-bold uppercase tracking-widest text-sm hover:brightness-125 cursor-pointer transition-all border-b-2 border-[#3b82f6] pb-1">
-                  Read More About Us
-                </span>
-              </Link>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative w-full h-full flex items-center"
-            >
-              <div className="absolute -inset-10 bg-[#3b82f6]/10 blur-[120px] rounded-full pointer-events-none" />
-              <div className="relative grid grid-cols-2 gap-4 md:gap-6 w-full">
+              
+              <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-16">
                 {[
-                  { title: "Security", img: generatedSecurity, desc: "Comprehensive protection for physical and digital assets." },
-                  { title: "Network", img: generatedNetwork, desc: "High-speed infrastructure for modern business." },
-                  { title: "Access", img: generatedAccess, desc: "Smart control systems for regulated entry." },
-                  { title: "Power", img: generatedPower, desc: "Uninterrupted power solutions for continuity." }
-                ].map((card, i) => (
-                  <div key={i} className={`bg-[#0d1526] rounded-3xl border border-white/5 shadow-2xl overflow-hidden group flex flex-col aspect-[4/5] md:aspect-[3/4] ${i % 2 === 0 ? 'mt-0' : 'mt-12'}`}>
-                    <div className="h-[70%] overflow-hidden relative">
-                      <img src={card.img} alt={card.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] to-transparent opacity-20" />
+                  { text: "Expert installation & maintenance", icon: Shield },
+                  { text: "24/7 Technical Support", icon: Zap },
+                  { text: "Customized Enterprise Solutions", icon: Lock }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 text-white/90 font-bold uppercase tracking-widest text-sm">
+                    <div className="w-12 h-12 rounded-full bg-[#3b82f6]/10 flex items-center justify-center border border-[#3b82f6]/20 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                      <item.icon className="w-6 h-6 text-[#3b82f6]" />
                     </div>
-                    <div className="h-[30%] p-5 md:p-8 flex flex-col justify-center">
-                      <h3 className="font-bold text-xl md:text-2xl text-white font-poppins uppercase tracking-wider mb-2">{card.title}</h3>
-                      <p className="text-xs md:text-sm text-white/50 leading-relaxed line-clamp-2">{card.desc}</p>
-                    </div>
+                    <span>{item.text}</span>
                   </div>
                 ))}
+              </div>
+
+              <div className="relative w-full">
+                <div className="absolute -inset-20 bg-[#3b82f6]/5 blur-[120px] rounded-full pointer-events-none" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[
+                    { title: "Security", img: generatedSecurity, desc: "Comprehensive protection for physical and digital assets." },
+                    { title: "Network", img: generatedNetwork, desc: "High-speed infrastructure for modern business." },
+                    { title: "Access", img: generatedAccess, desc: "Smart control systems for regulated entry." },
+                    { title: "Power", img: generatedPower, desc: "Uninterrupted power solutions for continuity." }
+                  ].map((card, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      className="bg-[#0d1526] rounded-3xl border border-white/5 shadow-2xl overflow-hidden group flex flex-col aspect-[3/4]"
+                    >
+                      <div className="h-[70%] overflow-hidden relative">
+                        <img src={card.img} alt={card.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] via-transparent to-transparent opacity-40" />
+                      </div>
+                      <div className="h-[30%] p-6 flex flex-col justify-center text-left">
+                        <h3 className="font-bold text-lg md:text-xl text-white font-poppins uppercase tracking-wider mb-2">{card.title}</h3>
+                        <p className="text-xs md:text-sm text-white/50 leading-relaxed line-clamp-2">{card.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-16">
+                <Link href="/about">
+                  <span className="text-[#3b82f6] font-bold uppercase tracking-widest text-sm hover:brightness-125 cursor-pointer transition-all border-b-2 border-[#3b82f6] pb-1">
+                    Read More About Us
+                  </span>
+                </Link>
               </div>
             </motion.div>
           </div>
