@@ -164,8 +164,8 @@ export default function Home() {
 
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Our Core Solutions</h2>
-            <p className="text-muted-foreground text-lg">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#3b82f6] font-poppins tracking-tight">Our Core Solutions</h2>
+            <p className="text-white text-lg">
               We offer end-to-end technology services designed to enhance efficiency and ensure security across your organization.
             </p>
           </div>
