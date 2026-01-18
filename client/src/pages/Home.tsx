@@ -20,6 +20,14 @@ import indRetail from "@assets/generated_images/retail_technology_and_smart_stor
 import indLogistics from "@assets/generated_images/logistics_and_warehouse_automation_technology.png";
 import indHospitality from "@assets/generated_images/hospitality_and_smart_hotel_technology.png";
 
+const testimonials = [
+  { name: "Ahmed Al-Sayed", role: "IT Director, Urban Tech", content: "VIP Networks transformed our security infrastructure. Their attention to detail and technical expertise is unmatched." },
+  { name: "Sarah Johnson", role: "Operations Manager, Global Logistics", content: "The network reliability they provided has significantly improved our warehouse efficiency. Truly a professional team." },
+  { name: "Mark Peterson", role: "CEO, Peterson Enterprise", content: "From initial consultation to final implementation, the experience was seamless. Highly recommend their power solutions." },
+  { name: "Fatima Zahra", role: "Hospitality Lead, Azure Resorts", content: "Exceptional smart hotel solutions that have redefined our guest experience completely." },
+  { name: "John Smith", role: "Logistics Head, SpeedLink", content: "Their automated warehouse systems are top-tier. Efficiency has increased by over 40% since implementation." },
+];
+
 export default function Home() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -246,35 +254,69 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS SECTION */}
-      <section className="py-24 bg-secondary/30 relative">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Client Testimonials</h2>
-            <p className="text-muted-foreground text-lg">What our partners say about our commitment to excellence.</p>
+      <section className="py-24 bg-[#0a1120] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-background to-transparent opacity-50" />
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white font-poppins tracking-tighter uppercase">Client <span className="text-[#3b82f6]">Testimonials</span></h2>
+            <div className="w-24 h-1 bg-[#3b82f6] mx-auto mb-6 rounded-full" />
+            <p className="text-white/70 text-lg md:text-xl font-medium tracking-tight">What our partners say about our commitment to excellence.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: "Ahmed Al-Sayed", role: "IT Director, Urban Tech", content: "VIP Networks transformed our security infrastructure. Their attention to detail and technical expertise is unmatched." },
-              { name: "Sarah Johnson", role: "Operations Manager, Global Logistics", content: "The network reliability they provided has significantly improved our warehouse efficiency. Truly a professional team." },
-              { name: "Mark Peterson", role: "CEO, Peterson Enterprise", content: "From initial consultation to final implementation, the experience was seamless. Highly recommend their power solutions." },
-            ].map((testimonial, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-card p-8 rounded-2xl border border-white/5 shadow-xl relative"
+          <div className="relative group">
+            <div className="flex overflow-hidden">
+              <motion.div 
+                animate={{
+                  x: [0, -1600],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 40,
+                    ease: "linear",
+                  },
+                }}
+                className="flex gap-8 whitespace-nowrap"
               >
-                <div className="text-accent text-4xl mb-4 font-serif">"</div>
-                <p className="text-white/90 italic mb-6 leading-relaxed">{testimonial.content}</p>
-                <div>
-                  <h4 className="font-bold text-white font-poppins">{testimonial.name}</h4>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
+                {[...testimonials, ...testimonials].map((testimonial, idx) => (
+                  <div
+                    key={idx}
+                    className="inline-block w-[350px] md:w-[450px] bg-[#0d1526]/80 backdrop-blur-xl p-8 md:p-10 rounded-[2rem] border border-white/5 shadow-2xl relative group/card transition-all duration-500 hover:border-[#3b82f6]/30 hover:shadow-[#3b82f6]/10"
+                  >
+                    <div className="absolute top-8 right-8 text-[#3b82f6]/20 group-hover/card:text-[#3b82f6]/40 transition-colors duration-500">
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 16.8954 21.017 18V21C21.017 22.1046 20.1216 23 19.017 23H16.017C14.9124 23 14.017 22.1046 14.017 21ZM3.01697 21L3.01697 18C3.01697 16.8954 3.9124 16 5.01697 16H8.01697C9.12154 16 10.017 16.8954 10.017 18V21C10.017 22.1046 9.12154 23 8.01697 23H5.01697C3.9124 23 3.01697 22.1046 3.01697 21ZM16.017 3C17.1216 3 18.017 3.89543 18.017 5V8H21.017V5C21.017 2.23858 18.7784 0 16.017 0H14.017C12.9124 0 12.017 0.89543 12.017 2V13H14.017V3ZM5.01697 3C6.12154 3 7.01697 3.89543 7.01697 5V8H10.017V5C10.017 2.23858 7.77839 0 5.01697 0H3.01697C1.9124 0 1.01697 0.89543 1.01697 2V13H3.01697V3Z" />
+                      </svg>
+                    </div>
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3b82f6] to-[#1d4ed8] p-[2px]">
+                        <div className="w-full h-full rounded-2xl bg-[#0d1526] flex items-center justify-center overflow-hidden">
+                          <span className="text-xl font-bold text-white">{testimonial.name.split(' ').map(n => n[0]).join('')}</span>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white text-lg font-poppins tracking-tight uppercase">{testimonial.name}</h4>
+                        <p className="text-sm text-[#3b82f6] font-semibold tracking-wider uppercase">{testimonial.role}</p>
+                      </div>
+                    </div>
+                    <p className="text-white/80 text-lg md:text-xl italic leading-relaxed whitespace-normal font-medium">
+                      "{testimonial.content}"
+                    </p>
+                    <div className="mt-8 flex gap-1">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <svg key={star} className="w-5 h-5 text-[#3b82f6]" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </motion.div>
-            ))}
+            </div>
+            
+            <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#0a1120] to-transparent z-20 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#0a1120] to-transparent z-20 pointer-events-none" />
           </div>
         </div>
       </section>
