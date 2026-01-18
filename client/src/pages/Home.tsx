@@ -15,6 +15,10 @@ import indSmartCity from "@assets/generated_images/modern_smart_city_with_connec
 import indManufacturing from "@assets/generated_images/industrial_manufacturing_facility_with_automation.png";
 import indMedical from "@assets/generated_images/advanced_medical_technology_research_lab.png";
 import indCorporate from "@assets/generated_images/corporate_office_building_interior_luxury.png";
+import indEducation from "@assets/generated_images/educational_technology_and_modern_classroom_setting.png";
+import indRetail from "@assets/generated_images/retail_technology_and_smart_store_interior.png";
+import indLogistics from "@assets/generated_images/logistics_and_warehouse_automation_technology.png";
+import indHospitality from "@assets/generated_images/hospitality_and_smart_hotel_technology.png";
 
 export default function Home() {
   const containerVariants = {
@@ -202,9 +206,9 @@ export default function Home() {
       {/* INDUSTRIES SECTION */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Industries We Serve</h2>
-            <p className="text-muted-foreground text-lg">
+          <div className="text-center max-w-5xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight uppercase">Industries <span className="text-[#3b82f6]">We Serve</span></h2>
+            <p className="text-white text-lg md:text-xl whitespace-nowrap">
               Tailored technology solutions for diverse sectors, driving innovation and security across industries.
             </p>
           </div>
@@ -215,6 +219,10 @@ export default function Home() {
               { title: "Manufacturing", img: indManufacturing, desc: "Industrial automation and robust network connectivity." },
               { title: "Healthcare", img: indMedical, desc: "Secure digital health systems and reliable power backup." },
               { title: "Corporate", img: indCorporate, desc: "Premium IT infrastructure for modern enterprise workspaces." },
+              { title: "Education", img: indEducation, desc: "Smart classroom technology and digital learning infrastructure." },
+              { title: "Retail", img: indRetail, desc: "Modern digital kiosks and smart lighting for retail environments." },
+              { title: "Logistics", img: indLogistics, desc: "Automated warehouse systems and industrial tech integration." },
+              { title: "Hospitality", img: indHospitality, desc: "Luxury smart hospitality tech and check-in automation." },
             ].map((industry, idx) => (
               <motion.div
                 key={idx}
