@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
-import { CheckCircle2, Shield, Network, Zap, Lock } from "lucide-react";
+import { CheckCircle2, Shield, Network, Zap, Lock, Headset } from "lucide-react";
 import { services } from "@/lib/services-data";
 import logo from "@assets/Untitled_design_(4)_1768732028230.png";
 import videoBg from "@assets/11104160-hd_1920_1080_25fps_1768727591204.mp4";
@@ -92,20 +92,20 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="w-full"
             >
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 font-poppins text-white leading-tight uppercase tracking-tighter">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-poppins text-white leading-tight uppercase tracking-tighter whitespace-nowrap">
                 Redefining Security & <span className="text-[#3b82f6]">Connectivity</span>
               </h2>
-              <p className="text-white/60 mb-12 text-lg md:text-xl max-w-5xl mx-auto leading-relaxed">
+              <p className="text-white mb-12 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-4 md:px-20">
                 VIP Networks specializes in delivering top-tier IT infrastructure and security solutions. From enterprise networking to advanced surveillance, we build systems that safeguard your assets and streamline your operations.
               </p>
               
               <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mb-16">
                 {[
                   { text: "Expert installation & maintenance", icon: Shield },
-                  { text: "24/7 Technical Support", icon: Zap },
+                  { text: "24/7 Technical Support", icon: Headset },
                   { text: "Customized Enterprise Solutions", icon: Lock }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 text-white/90 font-bold uppercase tracking-widest text-sm">
+                  <div key={i} className="flex items-center gap-4 text-white/90 font-bold uppercase tracking-widest text-xs md:text-sm">
                     <div className="w-12 h-12 rounded-full bg-[#3b82f6]/10 flex items-center justify-center border border-[#3b82f6]/20 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                       <item.icon className="w-6 h-6 text-[#3b82f6]" />
                     </div>
@@ -135,9 +135,9 @@ export default function Home() {
                         <img src={card.img} alt={card.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] via-transparent to-transparent opacity-40" />
                       </div>
-                      <div className="h-[30%] p-6 flex flex-col justify-center text-left">
-                        <h3 className="font-bold text-lg md:text-xl text-white font-poppins uppercase tracking-wider mb-2">{card.title}</h3>
-                        <p className="text-xs md:text-sm text-white/50 leading-relaxed line-clamp-2">{card.desc}</p>
+                      <div className="h-[30%] p-5 md:p-6 flex flex-col justify-center text-left">
+                        <h3 className="font-bold text-lg md:text-xl text-white font-poppins uppercase tracking-wider mb-1">{card.title}</h3>
+                        <p className="text-xs md:text-sm text-white/50 leading-relaxed">{card.desc}</p>
                       </div>
                     </motion.div>
                   ))}
