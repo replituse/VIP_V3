@@ -1,13 +1,16 @@
-import cctvGif from "@assets/CCTV_1768659842407.gif";
-import fireSafetyPng from "@assets/image_1768659849297.png";
-import intercomPng from "@assets/image_1768659863686.png";
-import biometricPng from "@assets/image_1768659884538.png";
+import generatedSecurity from "@assets/generated_images/high-quality_cctv_surveillance_camera_system_product_photo.png";
+import generatedFire from "@assets/generated_images/high-quality_thermal_and_fire_detection_sensor.png";
+import generatedIPBX from "@assets/generated_images/high-quality_ipbx_intercom_communication_system.png";
+import generatedBiometric from "@assets/generated_images/high-quality_biometric_fingerprint_smart_access_lock.png";
+import generatedAV from "@assets/generated_images/high-quality_audio_visual_room_automation_controller.png";
+import generatedNetwork from "@assets/generated_images/data_center_server_rack_networking_cables.png";
+import generatedPower from "@assets/generated_images/industrial_ups_power_backup_system.png";
 
 export const services = [
   {
     title: "CCTV Surveillance & Networking",
     description: "Deployment of HD/IP surveillance systems with NVR/DVR integration, multi-site central monitoring, and ONVIF-compliant camera configurations. Includes AI analytics (face detection, intrusion, object tracking), VLAN-based network segmentation, enterprise Wi-Fi, structured cabling, and LAN/WAN architecture with secure routing, switching, and rack-mounted server solutions.",
-    image: cctvGif,
+    image: generatedSecurity,
     features: [
       "HD / IP surveillance cameras with central monitoring",
       "AI-enabled analytics: face recognition, intrusion alerts",
@@ -21,7 +24,7 @@ export const services = [
   {
     title: "Thermal & Fire Detection Systems",
     description: "Our Thermal & Fire Detection solutions combine advanced heat-sensing technology with intelligent early-warning systems to protect people, infrastructure, and critical assets. We deploy AI-enabled thermal cameras, addressable fire alarm panels, and high-precision sensors that detect smoke, heat, or flame at the earliest stage—even in challenging environments where traditional detectors fail.",
-    image: fireSafetyPng,
+    image: generatedFire,
     features: [
       "AI-Powered Fire & Smoke Detection",
       "Thermal Imaging Cameras (24/7 Heat Monitoring)",
@@ -35,7 +38,7 @@ export const services = [
   {
     title: "Intercom & IPBX Communication",
     description: "IP-based Intercom & IPBX systems enable centralized multi-extension communication. SIP voice routing ensures secure and seamless calling across the facility. Video door phones and intercom units integrate directly over LAN/WAN. PoE endpoints and IPBX servers provide stable and uninterrupted operation.",
-    image: intercomPng,
+    image: generatedIPBX,
     features: [
       "SIP-based Intercom & IPBX communication architecture",
       "Multi-extension calling with centralized call management",
@@ -49,7 +52,7 @@ export const services = [
   {
     title: "Biometrics & Smart Access Locks",
     description: "Deployment of biometric access systems with fingerprint, RFID, and facial recognition controllers for secure, role-based access. Supports centralized user management, time–attendance integration, and real-time event monitoring across multi-site locations. Includes IoT-enabled smart locks, mobile-app access, and encrypted credential storage. Features PoE-powered door terminals, fail-safe/fail-secure locking mechanisms, and secure TCP/IP communication for reliable, tamper-proof operations.",
-    image: biometricPng,
+    image: generatedBiometric,
     features: [
       "AI-driven Facial, Fingerprint & RFID Access Control",
       "Centralized Multi-Door Management with Role-Based Permissions",
@@ -77,7 +80,7 @@ export const services = [
   {
     title: "Audio Visual & Room Automation",
     description: "We offer cutting-edge Audio-Visual integration and smart room automation systems designed to enhance collaboration, communication, and user experience. Our solutions include interactive displays, conference room AV setups, digital signage, integrated sound systems, lighting and climate automation, and centralized control platforms. With scalable and intuitive technologies, we transform meeting rooms, classrooms, auditoriums, and commercial spaces into intelligent environments that deliver seamless performance and operational efficiency.",
-    image: "https://images.unsplash.com/photo-1492619334798-54265fe5059a?w=800&auto=format&fit=crop",
+    image: generatedAV,
     features: [
       "Smart Meeting Room Integration",
       "LED Displays, Projectors & Interactive Panels",
@@ -118,7 +121,7 @@ export const services = [
   {
     title: "UPS & Battery Solutions",
     description: "Reliable power backup solutions ensure business continuity. We provide high-capacity UPS systems and battery maintenance to protect your infrastructure against power fluctuations and outages. Our expert team ensures your systems remain operational 24/7 with professional load analysis and maintenance.",
-    image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&auto=format&fit=crop",
+    image: generatedPower,
     features: [
       "Online & Offline UPS Systems",
       "Battery Bank Maintenance & Replacement",
@@ -144,7 +147,7 @@ export const services = [
   {
     title: "Network Booster",
     description: "Enhances your existing network performance by improving speed, stability, and coverage. Optimizes bandwidth distribution, reduces latency, and eliminates dead zones using advanced signal-routing and load-balancing technology.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop",
+    image: generatedNetwork,
     features: [
       "AI-Optimized Traffic Routing",
       "Edge-Based Signal Amplification",
