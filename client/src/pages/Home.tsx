@@ -181,14 +181,6 @@ export default function Home() {
               <ServiceCard key={idx} {...service} delay={idx * 0.1} showDescription={false} />
             ))}
           </motion.div>
-
-          <div className="mt-16 text-center">
-            <Link href="/services">
-              <button className="px-8 py-3 bg-secondary hover:bg-white/10 text-white border border-white/10 rounded-full font-bold uppercase text-sm tracking-wide transition-all cursor-pointer flex items-center gap-2 mx-auto">
-                View All Services <span className="text-xl">→</span>
-              </button>
-            </Link>
-          </div>
         </div>
       </section>
 
