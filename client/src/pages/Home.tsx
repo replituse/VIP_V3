@@ -258,9 +258,8 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-background to-transparent opacity-50" />
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white font-poppins tracking-tighter uppercase">Client <span className="text-[#3b82f6]">Testimonials</span></h2>
-            <div className="w-24 h-1 bg-[#3b82f6] mx-auto mb-6 rounded-full" />
-            <p className="text-white/70 text-lg md:text-xl font-medium tracking-tight">What our partners say about our commitment to excellence.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight uppercase">Client <span className="text-[#3b82f6]">Testimonials</span></h2>
+            <p className="text-[#ffffff] text-lg md:text-xl font-medium tracking-tight">What our partners say about our commitment to excellence.</p>
           </div>
 
           <div className="relative group">
@@ -284,17 +283,7 @@ export default function Home() {
                     key={idx}
                     className="inline-block w-[350px] md:w-[450px] bg-[#0d1526]/80 backdrop-blur-xl p-8 md:p-10 rounded-[2rem] border border-white/5 shadow-2xl relative group/card transition-all duration-500 hover:border-[#3b82f6]/30 hover:shadow-[#3b82f6]/10"
                   >
-                    <div className="absolute top-8 right-8 text-[#3b82f6]/20 group-hover/card:text-[#3b82f6]/40 transition-colors duration-500">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 16.8954 21.017 18V21C21.017 22.1046 20.1216 23 19.017 23H16.017C14.9124 23 14.017 22.1046 14.017 21ZM3.01697 21L3.01697 18C3.01697 16.8954 3.9124 16 5.01697 16H8.01697C9.12154 16 10.017 16.8954 10.017 18V21C10.017 22.1046 9.12154 23 8.01697 23H5.01697C3.9124 23 3.01697 22.1046 3.01697 21ZM16.017 3C17.1216 3 18.017 3.89543 18.017 5V8H21.017V5C21.017 2.23858 18.7784 0 16.017 0H14.017C12.9124 0 12.017 0.89543 12.017 2V13H14.017V3ZM5.01697 3C6.12154 3 7.01697 3.89543 7.01697 5V8H10.017V5C10.017 2.23858 7.77839 0 5.01697 0H3.01697C1.9124 0 1.01697 0.89543 1.01697 2V13H3.01697V3Z" />
-                      </svg>
-                    </div>
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3b82f6] to-[#1d4ed8] p-[2px]">
-                        <div className="w-full h-full rounded-2xl bg-[#0d1526] flex items-center justify-center overflow-hidden">
-                          <span className="text-xl font-bold text-white">{testimonial.name.split(' ').map(n => n[0]).join('')}</span>
-                        </div>
-                      </div>
+                    <div className="flex flex-col gap-4 mb-6">
                       <div>
                         <h4 className="font-bold text-white text-lg font-poppins tracking-tight uppercase">{testimonial.name}</h4>
                         <p className="text-sm text-[#3b82f6] font-semibold tracking-wider uppercase">{testimonial.role}</p>
