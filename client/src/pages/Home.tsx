@@ -6,8 +6,11 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { CheckCircle2, Shield, Network, Zap, Lock } from "lucide-react";
 import { services } from "@/lib/services-data";
 import logo from "@assets/Untitled_design_(4)_1768732028230.png";
-
 import videoBg from "@assets/11104160-hd_1920_1080_25fps_1768727591204.mp4";
+import generatedSecurity from "@assets/generated_images/high-tech_digital_security_shield_illustration.png";
+import generatedAccess from "@assets/generated_images/futuristic_biometric_access_control_system.png";
+import generatedNetwork from "@assets/generated_images/global_network_infrastructure_connectivity_hub.png";
+import generatedPower from "@assets/generated_images/industrial_power_energy_management_system.png";
 
 export default function Home() {
   const containerVariants = {
@@ -84,7 +87,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-poppins text-white">
                 Redefining Security & <br />
                 <span className="text-primary">Connectivity</span>
               </h2>
@@ -116,27 +119,43 @@ export default function Home() {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent opacity-20 blur-2xl rounded-full" />
               <div className="relative grid grid-cols-2 gap-4">
                 <div className="space-y-4 mt-8">
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Shield className="w-10 h-10 text-primary mb-4" />
-                    <h3 className="font-bold text-lg text-white">Security</h3>
-                    <p className="text-sm text-muted-foreground mt-2">Comprehensive protection for physical and digital assets.</p>
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
+                    <div className="h-40 overflow-hidden">
+                      <img src={generatedSecurity} alt="Security" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-bold text-xl text-white font-poppins">Security</h3>
+                      <p className="text-sm text-muted-foreground mt-2">Comprehensive protection for physical and digital assets.</p>
+                    </div>
                   </div>
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Lock className="w-10 h-10 text-accent mb-4" />
-                    <h3 className="font-bold text-lg text-white">Access</h3>
-                    <p className="text-sm text-muted-foreground mt-2">Smart control systems for regulated entry.</p>
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
+                    <div className="h-40 overflow-hidden">
+                      <img src={generatedAccess} alt="Access" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-bold text-xl text-white font-poppins">Access</h3>
+                      <p className="text-sm text-muted-foreground mt-2">Smart control systems for regulated entry.</p>
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Network className="w-10 h-10 text-blue-400 mb-4" />
-                    <h3 className="font-bold text-lg text-white">Network</h3>
-                    <p className="text-sm text-muted-foreground mt-2">High-speed infrastructure for modern business.</p>
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
+                    <div className="h-40 overflow-hidden">
+                      <img src={generatedNetwork} alt="Network" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-bold text-xl text-white font-poppins">Network</h3>
+                      <p className="text-sm text-muted-foreground mt-2">High-speed infrastructure for modern business.</p>
+                    </div>
                   </div>
-                  <div className="bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
-                    <Zap className="w-10 h-10 text-yellow-500 mb-4" />
-                    <h3 className="font-bold text-lg text-white">Power</h3>
-                    <p className="text-sm text-muted-foreground mt-2">Uninterrupted power solutions for continuity.</p>
+                  <div className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group h-full">
+                    <div className="h-40 overflow-hidden">
+                      <img src={generatedPower} alt="Power" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-bold text-xl text-white font-poppins">Power</h3>
+                      <p className="text-sm text-muted-foreground mt-2">Uninterrupted power solutions for continuity.</p>
+                    </div>
                   </div>
                 </div>
               </div>
