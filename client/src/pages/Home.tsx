@@ -11,6 +11,10 @@ import generatedSecurity from "@assets/generated_images/professional_cctv_survei
 import generatedAccess from "@assets/generated_images/electronic_office_key_card_reader.png";
 import generatedNetwork from "@assets/generated_images/data_center_server_rack_networking_cables.png";
 import generatedPower from "@assets/generated_images/industrial_ups_power_backup_system.png";
+import indSmartCity from "@assets/generated_images/modern_smart_city_with_connectivity_lines.png";
+import indManufacturing from "@assets/generated_images/industrial_manufacturing_facility_with_automation.png";
+import indMedical from "@assets/generated_images/advanced_medical_technology_research_lab.png";
+import indCorporate from "@assets/generated_images/corporate_office_building_interior_luxury.png";
 
 export default function Home() {
   const containerVariants = {
@@ -203,18 +207,89 @@ export default function Home() {
       {/* CTA SECTION */}
       <section className="py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-        {/* Tech abstract image for overlay texture */}
         
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Upgrade Your Infrastructure?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-poppins">Ready to Upgrade Your Infrastructure?</h2>
           <p className="text-blue-100 text-lg max-w-2xl mx-auto mb-10">
             Get in touch with our experts today for a customized quote tailored to your specific business needs.
           </p>
           <Link href="/contact">
-            <button className="px-8 py-4 bg-white text-primary font-bold rounded-lg shadow-xl hover:scale-105 transition-transform uppercase tracking-wide cursor-pointer">
+            <button className="px-8 py-4 bg-white text-primary font-bold rounded-lg shadow-xl hover:scale-105 transition-transform uppercase tracking-wide cursor-pointer font-poppins">
               Get Started Now
             </button>
           </Link>
+        </div>
+      </section>
+
+      {/* INDUSTRIES SECTION */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Industries We Serve</h2>
+            <p className="text-muted-foreground text-lg">
+              Tailored technology solutions for diverse sectors, driving innovation and security across industries.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Smart Cities", img: indSmartCity, desc: "Urban infrastructure with integrated IoT and security." },
+              { title: "Manufacturing", img: indManufacturing, desc: "Industrial automation and robust network connectivity." },
+              { title: "Healthcare", img: indMedical, desc: "Secure digital health systems and reliable power backup." },
+              { title: "Corporate", img: indCorporate, desc: "Premium IT infrastructure for modern enterprise workspaces." },
+            ].map((industry, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-card rounded-2xl border border-white/5 shadow-xl overflow-hidden group flex flex-col h-full"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={industry.img} alt={industry.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="font-bold text-lg text-white font-poppins mb-2">{industry.title}</h3>
+                  <p className="text-sm text-muted-foreground">{industry.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="py-24 bg-secondary/30 relative">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Client Testimonials</h2>
+            <p className="text-muted-foreground text-lg">What our partners say about our commitment to excellence.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { name: "Ahmed Al-Sayed", role: "IT Director, Urban Tech", content: "VIP Networks transformed our security infrastructure. Their attention to detail and technical expertise is unmatched." },
+              { name: "Sarah Johnson", role: "Operations Manager, Global Logistics", content: "The network reliability they provided has significantly improved our warehouse efficiency. Truly a professional team." },
+              { name: "Mark Peterson", role: "CEO, Peterson Enterprise", content: "From initial consultation to final implementation, the experience was seamless. Highly recommend their power solutions." },
+            ].map((testimonial, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-card p-8 rounded-2xl border border-white/5 shadow-xl relative"
+              >
+                <div className="text-accent text-4xl mb-4 font-serif">"</div>
+                <p className="text-white/90 italic mb-6 leading-relaxed">{testimonial.content}</p>
+                <div>
+                  <h4 className="font-bold text-white font-poppins">{testimonial.name}</h4>
+                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
