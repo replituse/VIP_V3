@@ -43,7 +43,7 @@ export function Navbar() {
             <span className="font-sans font-semibold text-2xl tracking-widest leading-none text-white uppercase drop-shadow-md">
               VIP NETWORKS
             </span>
-            <span className="text-[8px] md:text-[10px] text-white/80 font-medium tracking-[0.25em] md:tracking-[0.25em] uppercase mt-1 pl-0.5 whitespace-nowrap">
+            <span className="text-[8px] md:text-[10px] text-white font-medium tracking-[0.25em] md:tracking-[0.25em] uppercase mt-1 pl-0.5 whitespace-nowrap">
               Visionary | Innovative | Productivity
             </span>
           </div>
