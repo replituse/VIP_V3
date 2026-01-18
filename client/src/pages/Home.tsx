@@ -19,6 +19,10 @@ import indEducation from "@assets/generated_images/educational_technology_and_mo
 import indRetail from "@assets/generated_images/retail_technology_and_smart_store_interior.png";
 import indLogistics from "@assets/generated_images/logistics_and_warehouse_automation_technology.png";
 import indHospitality from "@assets/generated_images/hospitality_and_smart_hotel_technology.png";
+import projectNetwork from "@assets/generated_images/modern_office_network_infrastructure_installation_photo.png";
+import projectAV from "@assets/generated_images/commercial_building_smart_lighting_and_av_installation_photo.png";
+import projectSecurity from "@assets/generated_images/industrial_facility_security_and_cctv_installation_photo.png";
+import projectSmartCity from "@assets/generated_images/smart_city_traffic_monitoring_system_installation_photo.png";
 
 const testimonials = [
   { name: "Ahmed Al-Sayed", role: "IT Director, Urban Tech", content: "VIP Networks transformed our security infrastructure. Their attention to detail and technical expertise is unmatched." },
@@ -246,6 +250,41 @@ export default function Home() {
                 <div className="p-6 flex-1 flex flex-col">
                   <h3 className="font-bold text-lg text-white font-poppins mb-2">{industry.title}</h3>
                   <p className="text-sm text-muted-foreground">{industry.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS SECTION */}
+      <section className="py-24 bg-secondary/10 relative overflow-hidden">
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight uppercase">Completed <span className="text-[#3b82f6]">Projects</span></h2>
+            <p className="text-white/70 text-lg">A showcase of our successfully delivered infrastructure and security solutions.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Enterprise Networking", img: projectNetwork, location: "Corporate Plaza" },
+              { title: "Smart Hotel AV", img: projectAV, location: "Grand Regency" },
+              { title: "Industrial Security", img: projectSecurity, location: "Manufacturing Hub" },
+              { title: "Smart City Traffic", img: projectSmartCity, location: "Urban Center" },
+            ].map((project, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group relative bg-[#0d1526] rounded-3xl overflow-hidden border border-white/5 shadow-2xl aspect-[4/5]"
+              >
+                <img src={project.img} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] via-[#0d1526]/20 to-transparent opacity-90" />
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <p className="text-[#3b82f6] text-xs font-bold uppercase tracking-widest mb-2">{project.location}</p>
+                  <h3 className="text-xl font-bold text-white uppercase tracking-tight">{project.title}</h3>
                 </div>
               </motion.div>
             ))}
