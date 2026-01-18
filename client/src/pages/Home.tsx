@@ -92,10 +92,10 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="w-full"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-poppins text-white leading-tight uppercase tracking-tighter whitespace-nowrap">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 font-poppins text-white leading-tight uppercase tracking-tighter lg:whitespace-nowrap">
                 Redefining Security & <span className="text-[#3b82f6]">Connectivity</span>
               </h2>
-              <p className="text-white mb-12 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-4 md:px-20">
+              <p className="text-white mb-12 text-lg md:text-xl max-w-6xl mx-auto leading-relaxed px-8 md:px-32">
                 VIP Networks specializes in delivering top-tier IT infrastructure and security solutions. From enterprise networking to advanced surveillance, we build systems that safeguard your assets and streamline your operations.
               </p>
               
