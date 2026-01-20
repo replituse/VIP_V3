@@ -12,6 +12,8 @@ import About from "@/pages/About";
 import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 
+import { ScrollToTopButton } from "@/components/ScrollToTop";
+
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
@@ -41,6 +43,7 @@ function App() {
       <TooltipProvider>
         <CustomCursor />
         <ChatBot />
+        <ScrollToTopButton />
         <Toaster />
         <Router />
       </TooltipProvider>
