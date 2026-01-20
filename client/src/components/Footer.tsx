@@ -1,37 +1,47 @@
 import { Link } from "wouter";
 import logo from "@assets/VIP_Networks_logo_(2)_1768635368208.png";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Send } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary border-t border-white/10 pt-16 pb-8">
+    <footer className="bg-[#050a15] border-t border-white/5 pt-20 pb-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-12 mb-16">
           {/* Brand */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:col-span-1 xl:col-span-1">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="VIP Networks" className="w-12 h-12 object-contain bg-white/5 rounded-full p-1" />
+              <img src={logo} alt="VIP Networks" className="w-14 h-14 object-contain bg-white/5 rounded-full p-1" />
               <div>
-                <h3 className="text-2xl font-bold text-white">VIP NETWORKS</h3>
-                <p className="text-primary text-xs tracking-widest uppercase">Technology Meets Reliability</p>
+                <h3 className="text-xl font-bold text-white tracking-tight leading-none">VIP NETWORKS</h3>
+                <p className="text-[#3b82f6] text-[10px] tracking-[0.2em] uppercase mt-1 font-bold">Technology Meets Reliability</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Leading provider of comprehensive IT infrastructure, security systems, and networking solutions for modern enterprises.
             </p>
-            <div className="flex gap-4">
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
-                  <Icon size={18} />
+            <div className="flex gap-3">
+              {[
+                { Icon: Facebook, color: "#1877F2" },
+                { Icon: Twitter, color: "#1DA1F2" },
+                { Icon: Linkedin, color: "#0A66C2" },
+                { Icon: Instagram, color: "#E4405F" }
+              ].map(({ Icon, color }, i) => (
+                <a 
+                  key={i} 
+                  href="#" 
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transition-all hover:scale-110"
+                  style={{ color }}
+                >
+                  <Icon size={20} fill={Icon === Facebook || Icon === Twitter || Icon === Linkedin ? "currentColor" : "none"} className={Icon === Instagram ? "stroke-[1.5]" : ""} />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+          <div className="lg:pl-8">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Quick Links</h4>
+            <ul className="space-y-4">
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
@@ -40,8 +50,8 @@ export function Footer() {
               ].map((link) => (
                 <li key={link.label}>
                   <Link href={link.href}>
-                    <span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+                    <span className="text-white/60 hover:text-[#3b82f6] transition-colors cursor-pointer flex items-center gap-2 text-sm group">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {link.label}
                     </span>
                   </Link>
@@ -52,8 +62,8 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-bold text-white mb-6">Our Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Our Services</h4>
+            <ul className="space-y-4">
               {[
                 "CCTV Surveillance",
                 "Fire Detection",
@@ -62,8 +72,12 @@ export function Footer() {
                 "Public Address",
                 "Audio Visual"
               ].map((service) => (
-                <li key={service} className="text-muted-foreground hover:text-white transition-colors cursor-default">
-                  {service}
+                <li key={service}>
+                  <Link href="/services">
+                    <span className="text-white/60 hover:text-white transition-colors cursor-pointer text-sm">
+                      {service}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -71,27 +85,45 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-bold text-white mb-6">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-muted-foreground">
-                <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Contact Us</h4>
+            <ul className="space-y-5">
+              <li className="flex items-start gap-4 text-white/60 text-sm">
+                <MapPin className="w-5 h-5 text-[#3b82f6] shrink-0 mt-0.5" />
                 <span>Jogeshwari East,<br />Mumbai - 400060</span>
               </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
+              <li className="flex items-center gap-4 text-white/60 text-sm">
+                <Phone className="w-5 h-5 text-[#3b82f6] shrink-0" />
                 <a href="tel:+919326144739" className="hover:text-white transition-colors">+91 9326144739</a>
               </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:vip.itinfra@gmail.com" className="hover:text-white transition-colors">vip.itinfra@gmail.com</a>
+              <li className="flex items-center gap-4 text-white/60 text-sm">
+                <Mail className="w-5 h-5 text-[#3b82f6] shrink-0" />
+                <a href="mailto:vip.itinfra@gmail.com" className="hover:text-white transition-colors text-[13px]">vip.itinfra@gmail.com</a>
               </li>
             </ul>
           </div>
+
+          {/* Newsletter / Subscribe */}
+          <div className="xl:col-span-1">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Subscribe</h4>
+            <p className="text-white/50 text-sm mb-6 leading-relaxed">
+              Stay updated with our latest technology solutions and industry insights.
+            </p>
+            <div className="relative group">
+              <input 
+                type="email" 
+                placeholder="Your email address" 
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 pr-12 text-sm text-white focus:outline-none focus:border-[#3b82f6]/50 transition-all"
+              />
+              <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-[#3b82f6] text-white flex items-center justify-center hover:bg-[#2563eb] transition-colors shadow-lg shadow-[#3b82f6]/20">
+                <Send size={14} />
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[13px] text-white/40">
           <p>© {new Date().getFullYear()} VIP Networks. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex gap-8">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
