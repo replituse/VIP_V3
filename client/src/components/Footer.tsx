@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import logo from "@assets/VIP_Networks_logo_(2)_1768635368208.png";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -24,12 +25,21 @@ export function Footer() {
     setEmail("");
   };
 
+  const socialLinks = [
+    { Icon: FaFacebookF, color: "bg-[#1877F2]", hoverColor: "hover:bg-[#166fe5]", href: "#" },
+    { Icon: FaTwitter, color: "bg-[#1DA1F2]", hoverColor: "hover:bg-[#1a91da]", href: "#" },
+    { Icon: FaLinkedinIn, color: "bg-[#0A66C2]", hoverColor: "hover:bg-[#0958a8]", href: "#" },
+    { Icon: FaInstagram, color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]", hoverColor: "hover:opacity-90", href: "#" },
+    { Icon: FaWhatsapp, color: "bg-[#25D366]", hoverColor: "hover:bg-[#20bd5a]", href: "#" },
+    { Icon: FaYoutube, color: "bg-[#FF0000]", hoverColor: "hover:bg-[#e60000]", href: "#" }
+  ];
+
   return (
     <footer className="bg-[#050a15] border-t border-white/5 pt-20 pb-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-12 mb-16 items-start">
           {/* Brand */}
-          <div className="space-y-6 lg:col-span-4">
+          <div className="space-y-6 lg:col-span-4 pr-4">
             <div className="flex items-center gap-3">
               <img src={logo} alt="VIP Networks" className="w-16 h-16 object-contain bg-white/5 rounded-full p-1" />
               <div>
@@ -40,20 +50,14 @@ export function Footer() {
             <p className="text-white/50 text-base leading-relaxed max-w-xs">
               Leading provider of comprehensive IT infrastructure, security systems, and networking solutions for modern enterprises.
             </p>
-            <div className="flex gap-4">
-              {[
-                { Icon: Facebook, color: "#1877F2" },
-                { Icon: Twitter, color: "#1DA1F2" },
-                { Icon: Linkedin, color: "#0A66C2" },
-                { Icon: Instagram, color: "#E4405F" }
-              ].map(({ Icon, color }, i) => (
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map(({ Icon, color, hoverColor, href }, i) => (
                 <a 
                   key={i} 
-                  href="#" 
-                  className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center transition-all hover:scale-110 shadow-lg shadow-black/20"
-                  style={{ color }}
+                  href={href} 
+                  className={`w-10 h-10 rounded-full flex items-center justify-center text-white transition-all hover:scale-110 shadow-lg shadow-black/20 ${color} ${hoverColor}`}
                 >
-                  <Icon size={22} fill={Icon === Facebook || Icon === Twitter || Icon === Linkedin ? "currentColor" : "none"} className={Icon === Instagram ? "stroke-[2]" : ""} />
+                  <Icon size={18} />
                 </a>
               ))}
             </div>
@@ -123,9 +127,9 @@ export function Footer() {
           </div>
 
           {/* Newsletter / Subscribe */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px]">Subscribe</h4>
-            <p className="text-white/50 text-[15px] mb-6 leading-relaxed">
+          <div className="lg:col-span-2 lg:text-right">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px] lg:text-right">Subscribe</h4>
+            <p className="text-white/50 text-[15px] mb-6 leading-relaxed lg:text-right">
               Stay updated with our latest technology solutions and industry insights.
             </p>
             <div className="relative">
@@ -134,7 +138,7 @@ export function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address" 
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 pr-12 text-sm text-white focus:outline-none focus:border-[#3b82f6]/50 transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 pr-12 text-sm text-white focus:outline-none focus:border-[#3b82f6]/50 transition-all lg:text-left"
               />
               <button 
                 onClick={handleSubscribe}
