@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Users, ShieldCheck, Cpu, Headphones, Trophy } from "lucide-react";
 import { Link } from "wouter";
 import { services } from "@/lib/services-data";
 import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
@@ -16,6 +16,34 @@ import projectRetail from "@assets/generated_images/luxury_retail_smart_store_se
 import projectDataCenter from "@assets/generated_images/large_data_center_networking_and_server_setup_photo.png";
 
 export default function Services() {
+  const whyChooseFeatures = [
+    {
+      icon: Users,
+      title: "Experienced Technical Team",
+      desc: "Skilled professionals with hands-on expertise in enterprise IT, networking, and security systems."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Enterprise-Grade Solutions",
+      desc: "High-performance, scalable solutions built using industry-leading technologies and standards."
+    },
+    {
+      icon: Cpu,
+      title: "Customized System Design",
+      desc: "Tailor-made solutions designed specifically to meet your operational and business requirements."
+    },
+    {
+      icon: Headphones,
+      title: "Reliable Support & AMC",
+      desc: "Proactive maintenance, quick response, and dependable annual support services you can trust."
+    },
+    {
+      icon: Trophy,
+      title: "Proven Industry Expertise",
+      desc: "Successful deployments across commercial, industrial, and enterprise environments."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground relative">
       <Navbar />
@@ -95,6 +123,44 @@ export default function Services() {
           </motion.div>
         ))}
       </div>
+
+      {/* WHY CHOOSE VIP NETWORKS */}
+      <section className="py-24 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight">Why Choose <span className="text-[#3b82f6]">VIP Networks?</span></h2>
+              <p className="text-muted-foreground text-lg">
+                Trusted technology partner delivering reliable, secure, and scalable solutions.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {whyChooseFeatures.map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-card/50 backdrop-blur-sm p-8 rounded-3xl border border-white/5 shadow-xl hover:shadow-[#3b82f6]/10 hover:border-[#3b82f6]/30 transition-all duration-300 hover:scale-[1.03] group flex flex-col items-center text-center"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center mb-6 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors duration-300">
+                  <feature.icon className="w-8 h-8 text-[#3b82f6] group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3 leading-tight">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* PROJECTS SECTION (duplicated from Home.tsx) */}
       <section className="py-24 bg-secondary/10 relative overflow-hidden">
