@@ -27,7 +27,7 @@ export function Footer() {
   return (
     <footer className="bg-[#050a15] border-t border-white/5 pt-20 pb-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 mb-16">
           {/* Brand */}
           <div className="space-y-6 lg:col-span-4">
             <div className="flex items-center gap-3">
@@ -61,8 +61,8 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Quick Links</h4>
-            <ul className="space-y-4">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px]">Quick Links</h4>
+            <ul className="space-y-3">
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
@@ -71,7 +71,7 @@ export function Footer() {
               ].map((link) => (
                 <li key={link.label}>
                   <Link href={link.href}>
-                    <span className="text-white/70 hover:text-[#3b82f6] transition-colors cursor-pointer flex items-center gap-2 text-[15px] group">
+                    <span className="text-white/80 hover:text-[#3b82f6] transition-colors cursor-pointer flex items-center text-[16px]">
                       {link.label}
                     </span>
                   </Link>
@@ -82,8 +82,8 @@ export function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Our Services</h4>
-            <ul className="space-y-4">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px]">Our Services</h4>
+            <ul className="space-y-3">
               {[
                 "CCTV Surveillance",
                 "Fire Detection",
@@ -94,7 +94,7 @@ export function Footer() {
               ].map((service) => (
                 <li key={service}>
                   <Link href="/services">
-                    <span className="text-white/70 hover:text-white transition-colors cursor-pointer text-[15px]">
+                    <span className="text-white/80 hover:text-white transition-colors cursor-pointer text-[16px]">
                       {service}
                     </span>
                   </Link>
@@ -105,17 +105,17 @@ export function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Contact Us</h4>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-4 text-white/70 text-[15px]">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px]">Contact Us</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-white/80 text-[16px]">
                 <MapPin className="w-5 h-5 text-[#3b82f6] shrink-0 mt-0.5" />
                 <span>Jogeshwari East,<br />Mumbai - 400060</span>
               </li>
-              <li className="flex items-center gap-4 text-white/70 text-[15px]">
+              <li className="flex items-center gap-3 text-white/80 text-[16px]">
                 <Phone className="w-5 h-5 text-[#3b82f6] shrink-0" />
                 <a href="tel:+919326144739" className="hover:text-white transition-colors">+91 9326144739</a>
               </li>
-              <li className="flex items-center gap-4 text-white/70 text-[15px]">
+              <li className="flex items-center gap-3 text-white/80 text-[16px]">
                 <Mail className="w-5 h-5 text-[#3b82f6] shrink-0" />
                 <a href="mailto:vip.itinfra@gmail.com" className="hover:text-white transition-colors">vip.itinfra@gmail.com</a>
               </li>
@@ -124,11 +124,11 @@ export function Footer() {
 
           {/* Newsletter / Subscribe */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Subscribe</h4>
-            <p className="text-white/50 text-[14px] mb-6 leading-relaxed">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px]">Subscribe</h4>
+            <p className="text-white/50 text-[15px] mb-6 leading-relaxed">
               Stay updated with our latest technology solutions and industry insights.
             </p>
-            <div className="relative group">
+            <div className="relative">
               <input 
                 type="email" 
                 value={email}
@@ -146,7 +146,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[14px] text-white/40">
+        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[15px] text-white/40">
           <p>© {new Date().getFullYear()} VIP Networks. All rights reserved.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
