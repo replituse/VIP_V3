@@ -15,32 +15,44 @@ import projectEducation from "@assets/generated_images/university_smart_lecture_
 import projectRetail from "@assets/generated_images/luxury_retail_smart_store_security_and_av_project_photo.png";
 import projectDataCenter from "@assets/generated_images/large_data_center_networking_and_server_setup_photo.png";
 
+// Why Choose Images
+import experiencedTechImg from "@assets/pexels-cottonbro-6804071_1768889922723.jpg";
+import enterpriseSolutionsImg from "@assets/pexels-cookiecutter-17489152_1768889995673.jpg";
+import customDesignImg from "@assets/pexels-zeleboba-33693785_1768890006348.jpg";
+import supportAMCImg from "@assets/pexels-field-engineer-147254-442150_1768890058149.jpg";
+import industryExpertiseImg from "@assets/generated_images/industrial_manufacturing_facility_with_automation.png"; // Reusing an existing high-quality image for the 5th card
+
 export default function Services() {
   const whyChooseFeatures = [
     {
       icon: Users,
       title: "Experienced Technical Team",
-      desc: "Skilled professionals with hands-on expertise in enterprise IT, networking, and security systems."
+      desc: "Skilled professionals with hands-on expertise in enterprise IT, networking, and security systems.",
+      img: experiencedTechImg
     },
     {
       icon: ShieldCheck,
       title: "Enterprise-Grade Solutions",
-      desc: "High-performance, scalable solutions built using industry-leading technologies and standards."
+      desc: "High-performance, scalable solutions built using industry-leading technologies and standards.",
+      img: enterpriseSolutionsImg
     },
     {
       icon: Cpu,
       title: "Customized System Design",
-      desc: "Tailor-made solutions designed specifically to meet your operational and business requirements."
+      desc: "Tailor-made solutions designed specifically to meet your operational and business requirements.",
+      img: customDesignImg
     },
     {
       icon: Headphones,
       title: "Reliable Support & AMC",
-      desc: "Proactive maintenance, quick response, and dependable annual support services you can trust."
+      desc: "Proactive maintenance, quick response, and dependable annual support services you can trust.",
+      img: supportAMCImg
     },
     {
       icon: Trophy,
       title: "Proven Industry Expertise",
-      desc: "Successful deployments across commercial, industrial, and enterprise environments."
+      desc: "Successful deployments across commercial, industrial, and enterprise environments.",
+      img: industryExpertiseImg
     }
   ];
 
@@ -141,7 +153,7 @@ export default function Services() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyChooseFeatures.map((feature, idx) => (
               <motion.div
                 key={idx}
@@ -149,13 +161,34 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-card/50 backdrop-blur-sm p-8 rounded-3xl border border-white/5 shadow-xl hover:shadow-[#3b82f6]/10 hover:border-[#3b82f6]/30 transition-all duration-300 hover:scale-[1.03] group flex flex-col items-center text-center"
+                className="group relative bg-card/40 backdrop-blur-xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:border-[#3b82f6]/40 hover:shadow-[#3b82f6]/20 transition-all duration-500 flex flex-col h-full"
               >
-                <div className="w-16 h-16 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center mb-6 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors duration-300">
-                  <feature.icon className="w-8 h-8 text-[#3b82f6] group-hover:scale-110 transition-transform duration-300" />
+                {/* Image Background for Card */}
+                <div className="h-48 overflow-hidden relative">
+                  <img 
+                    src={feature.img} 
+                    alt={feature.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-80" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                  
+                  {/* Floating Icon */}
+                  <div className="absolute top-6 right-6 w-14 h-14 rounded-2xl bg-[#3b82f6]/20 backdrop-blur-md flex items-center justify-center border border-white/10 group-hover:rotate-[360deg] transition-transform duration-700 ease-in-out">
+                    <feature.icon className="w-7 h-7 text-[#3b82f6]" />
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 leading-tight">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+
+                <div className="p-8 pt-0 flex-1 flex flex-col text-left">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4 leading-tight group-hover:text-[#3b82f6] transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </div>
+                
+                {/* Bottom Accent Bar */}
+                <div className="h-1.5 w-0 group-hover:w-full bg-gradient-to-r from-transparent via-[#3b82f6] to-transparent transition-all duration-500" />
               </motion.div>
             ))}
           </div>
