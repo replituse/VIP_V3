@@ -101,18 +101,12 @@ export default function About() {
             transition={{ duration: 1 }}
             className="max-w-5xl mx-auto text-center"
           >
-            <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none font-poppins">
-              ABOUT <span className="text-[#3b82f6] drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">VIP NETWORKS</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 uppercase">
+              About <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
-            <p className="text-[#3b82f6] text-xl md:text-3xl font-bold uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#3b82f6] to-blue-400">
-              WHERE TECHNOLOGY MEETS RELIABILITY
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Where Technology Meets Reliability
             </p>
-            <motion.div 
-              initial={{ width: 0 }}
-              animate={{ width: "100px" }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="h-1 bg-[#3b82f6] mx-auto mt-8 rounded-full"
-            />
           </motion.div>
         </div>
       </section>
