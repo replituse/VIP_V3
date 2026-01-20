@@ -58,13 +58,25 @@ export default function About() {
   ];
 
   const whatWeDo = [
-    { title: "IT Networking & Infrastructure", icon: Network },
-    { title: "CCTV & AI Surveillance Systems", icon: ShieldAlert },
-    { title: "Fire, Thermal & Safety Solutions", icon: Flame },
-    { title: "Access Control & Biometrics", icon: Fingerprint },
-    { title: "Communication & AV Systems", icon: MessageSquare },
-    { title: "IoT, Cloud & Software Solutions", icon: Cloud },
+    { title: "IT Networking & Infrastructure", icon: Network, animation: "rotate" },
+    { title: "CCTV & AI Surveillance Systems", icon: ShieldAlert, animation: "pulse" },
+    { title: "Fire, Thermal & Safety Solutions", icon: Flame, animation: "bounce" },
+    { title: "Access Control & Biometrics", icon: Fingerprint, animation: "scan" },
+    { title: "Communication & AV Systems", icon: MessageSquare, animation: "ping" },
+    { title: "IoT, Cloud & Software Solutions", icon: Cloud, animation: "float" },
   ];
+
+  const getAnimationProps = (type: string) => {
+    switch (type) {
+      case "rotate": return { whileHover: { rotate: 360 }, transition: { duration: 0.8 } };
+      case "pulse": return { whileHover: { scale: [1, 1.2, 1] }, transition: { repeat: Infinity, duration: 0.6 } };
+      case "bounce": return { whileHover: { y: [0, -10, 0] }, transition: { repeat: Infinity, duration: 0.5 } };
+      case "scan": return { whileHover: { x: [-5, 5, -5] }, transition: { repeat: Infinity, duration: 0.8 } };
+      case "ping": return { whileHover: { opacity: [1, 0.5, 1] }, transition: { repeat: Infinity, duration: 0.4 } };
+      case "float": return { whileHover: { y: -5 }, transition: { yoyo: Infinity, duration: 0.5 } };
+      default: return {};
+    }
+  };
 
   const industries = [
     { title: "Corporate Offices", icon: Briefcase },
@@ -154,9 +166,12 @@ export default function About() {
                 whileHover={{ scale: 1.05, borderColor: "rgba(59, 130, 246, 0.5)" }}
                 className="bg-[#0d1526] p-8 rounded-3xl border border-white/5 flex items-center gap-6 group hover:border-[#3b82f6]/40 transition-all duration-300 cursor-default"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors group-hover:rotate-12">
+                <motion.div 
+                  className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors"
+                  {...getAnimationProps(item.animation)}
+                >
                   <item.icon className="w-7 h-7 text-[#3b82f6]" />
-                </div>
+                </motion.div>
                 <h4 className="font-bold text-lg leading-tight group-hover:text-[#3b82f6] transition-colors">{item.title}</h4>
               </motion.div>
             ))}
