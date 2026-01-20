@@ -96,7 +96,7 @@ export default function About() {
       <Navbar />
 
       {/* 1. About Header */}
-      <section className="relative pt-40 pb-24 overflow-hidden min-h-[60vh] flex items-center">
+      <section className="relative pt-40 pb-24 overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#050a15]/90 z-10" />
           <div 
@@ -112,27 +112,9 @@ export default function About() {
             transition={{ duration: 1 }}
             className="max-w-5xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-8 uppercase">
+            <h1 className="text-4xl md:text-6xl font-bold uppercase">
               About <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
-            
-            <div className="relative max-w-4xl mx-auto rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full aspect-video object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-                src={networkingVideo}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050a15] via-transparent to-transparent opacity-60" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                <p className="text-xl md:text-2xl text-white font-medium drop-shadow-lg tracking-wide uppercase">
-                  Where Technology Meets Reliability
-                </p>
-                <div className="w-24 h-1 bg-[#3b82f6] mt-4 rounded-full" />
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -140,22 +122,39 @@ export default function About() {
       {/* 2. Company Overview */}
       <section className="py-24 relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-[#0d1526]/80 backdrop-blur-xl p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative"
-            >
-              <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-[#3b82f6]/30 rounded-tl-[2.5rem]" />
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-[#3b82f6]/30 rounded-br-[2.5rem]" />
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 font-light italic">
-                VIP Networks is a technology-driven IT and infrastructure solutions company delivering reliable, secure, and scalable systems for businesses across industries.
-              </p>
-              <p className="text-lg md:text-xl text-white/70 leading-relaxed">
-                We specialize in networking, surveillance, security, automation, and digital transformation solutions designed to improve operational efficiency and safety. With a focus on innovation and performance, we help organizations build future-ready technology environments that support growth and continuity.
-              </p>
-            </motion.div>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-8"
+              >
+                <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light italic">
+                  VIP Networks is a technology-driven IT and infrastructure solutions company delivering reliable, secure, and scalable systems for businesses across industries.
+                </p>
+                <p className="text-lg md:text-xl text-white/70 leading-relaxed">
+                  We specialize in networking, surveillance, security, automation, and digital transformation solutions designed to improve operational efficiency and safety. With a focus on innovation and performance, we help organizations build future-ready technology environments that support growth and continuity.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group"
+              >
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="w-full aspect-video object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  src={networkingVideo}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050a15] via-transparent to-transparent opacity-40" />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
