@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X, Send, Bot } from "lucide-react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import chatbotLottie from "@assets/chatbot_1768729907589.lottie";
+import assistantAvatar from "@assets/generated_images/professional_man_headshot_portrait,_white_background_removed.png";
 import { services } from "@/lib/services-data";
 
 export function ChatBot() {
@@ -80,12 +81,11 @@ export function ChatBot() {
             {/* Header */}
             <div className="p-4 bg-primary flex items-center justify-between text-primary-foreground">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <DotLottieReact
-                    src={chatbotLottie}
-                    autoplay
-                    loop
-                    className="w-full h-full"
+                <div className="w-12 h-12 rounded-full border-2 border-white/20 overflow-hidden bg-white/10 shrink-0">
+                  <img 
+                    src={assistantAvatar} 
+                    alt="VIP Assistant" 
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
@@ -149,14 +149,18 @@ export function ChatBot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-40 h-40 flex items-center justify-center group relative overflow-visible p-0 bg-transparent border-0 shadow-none hover:bg-transparent no-default-hover-elevate no-default-active-elevate"
+        className="w-24 h-24 mb-6 mr-6 flex items-center justify-center group relative overflow-visible p-0 bg-transparent border-0 shadow-none hover:bg-transparent no-default-hover-elevate no-default-active-elevate"
       >
-        <DotLottieReact
-          src={chatbotLottie}
-          autoplay
-          loop
-          className="w-full h-full"
-        />
+        <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-colors" />
+        <div className="w-20 h-20 rounded-full border-4 border-primary/50 overflow-hidden bg-card shadow-2xl relative z-10 group-hover:border-primary transition-colors">
+          <img 
+            src={assistantAvatar} 
+            alt="VIP Assistant" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Pulsing Status Indicator */}
+        <div className="absolute bottom-2 right-2 w-5 h-5 bg-green-500 rounded-full border-4 border-card z-20 animate-pulse" />
       </motion.button>
     </div>
   );
