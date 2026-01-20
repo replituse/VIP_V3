@@ -112,9 +112,13 @@ export default function About() {
             transition={{ duration: 1 }}
             className="max-w-5xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold uppercase">
+            <h1 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter">
               About <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
+            <div className="w-24 h-1.5 bg-[#3b82f6] mx-auto mt-6 mb-8 rounded-full" />
+            <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed">
+              Empowering enterprises with cutting-edge infrastructure and security solutions designed for the future.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -159,13 +163,14 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. What We Do */}
-      <section className="py-24 bg-secondary/10">
+      {/* 3. What We Do (Our Services) */}
+      <section className="py-24 bg-secondary/10 relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">What We <span className="text-[#3b82f6]">Do</span></h2>
-            <p className="text-white/60 text-lg leading-relaxed">
-              We design, deploy, and support end-to-end technology solutions that integrate networking, security, communication, automation, and cloud platforms. Our solutions are engineered to meet enterprise standards while remaining flexible for evolving business needs.
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter font-poppins">Our <span className="text-[#3b82f6]">Services</span></h2>
+            <div className="w-20 h-1 bg-[#3b82f6] mx-auto mb-8 rounded-full" />
+            <p className="text-white/60 text-xl leading-relaxed max-w-2xl mx-auto">
+              Comprehensive technology services tailored to secure, connect, and empower your enterprise.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
