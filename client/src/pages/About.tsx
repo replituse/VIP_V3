@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Shield, Target, Zap, Award, CheckCircle2, Rocket, Network, ShieldAlert, Flame, Fingerprint, MessageSquare, Cloud, Lightbulb, HeartHandshake, UserCheck, Briefcase } from "lucide-react";
+import { Link } from "wouter";
 import stockDataCenter from "@assets/stock_images/modern_datacenter_se_70373e6b.jpg";
 
 export default function About() {
