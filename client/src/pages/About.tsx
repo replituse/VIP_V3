@@ -145,7 +145,8 @@ export default function About() {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group"
+                whileHover="hover"
+                className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group cursor-pointer"
               >
                 <video 
                   autoPlay 
@@ -156,10 +157,15 @@ export default function About() {
                   src={networkingVideo}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050a15] via-transparent to-transparent opacity-40" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-3xl md:text-5xl font-bold text-white/90 uppercase tracking-tighter drop-shadow-2xl">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <motion.span 
+                    variants={{
+                      hover: { scale: 1.2, transition: { duration: 0.3 } }
+                    }}
+                    className="text-3xl md:text-5xl font-bold text-white/90 uppercase tracking-tighter drop-shadow-2xl"
+                  >
                     VIP Networks
-                  </span>
+                  </motion.span>
                 </div>
               </motion.div>
             </div>
