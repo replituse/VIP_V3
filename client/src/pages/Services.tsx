@@ -84,56 +84,46 @@ export default function Services() {
       </div>
 
       {/* Services List */}
-      <div className="py-20 container px-4 md:px-6 mx-auto space-y-24">
-        {services.map((service, index) => (
-          <motion.div 
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}
-          >
-            {/* Image/Icon Side */}
-            <div className="flex-1 w-full flex justify-center">
-              <div className="relative w-full max-w-lg aspect-video rounded-2xl bg-gradient-to-br from-secondary to-card border border-white/10 shadow-2xl overflow-hidden group">
+      <div className="py-20 container px-4 md:px-6 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group relative bg-card/40 backdrop-blur-xl rounded-[2.5rem] border border-white/5 shadow-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 flex flex-col h-full"
+            >
+              <div className="h-56 overflow-hidden relative">
                 <img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
-              </div>
-            </div>
-
-            {/* Content Side */}
-            <div className="flex-1 w-full">
-              <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">Service {String(index + 1).padStart(2, '0')}</span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">{service.title}</h2>
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                {service.description}
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {service.features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                      <Check className="w-3.5 h-3.5 text-primary" />
-                    </div>
-                    <span className="text-sm font-medium">{feature}</span>
-                  </div>
-                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                <div className="absolute top-6 left-6 px-4 py-1 bg-primary/20 backdrop-blur-md rounded-full border border-white/10">
+                  <span className="text-primary font-bold text-xs uppercase tracking-widest">Service {String(index + 1).padStart(2, '0')}</span>
+                </div>
               </div>
 
-              <Link href="/contact">
-                <button className="flex items-center gap-2 text-white font-bold hover:text-primary transition-colors uppercase tracking-wider text-sm group cursor-pointer">
-                  Request Quote
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </button>
-              </Link>
-            </div>
-          </motion.div>
-        ))}
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground line-clamp-3 mb-6 flex-1">
+                  {service.description}
+                </p>
+                <Link href={`/services/${index}`}>
+                  <button className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs group/btn">
+                    Explore Service
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* WHY CHOOSE VIP NETWORKS */}

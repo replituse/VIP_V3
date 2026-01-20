@@ -39,7 +39,7 @@ export function ServiceCard({ title, description, image, delay = 0, showDescript
           )}
           
           <div className="mt-auto">
-            <Link href="/services">
+            <Link href={`/services/${index}`}>
               <span className="inline-flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-widest cursor-pointer group/link hover:brightness-125 transition-all">
                 Learn More
                 <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
