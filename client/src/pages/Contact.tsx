@@ -142,6 +142,10 @@ export default function Contact() {
                   <label className="text-sm font-medium ml-1">Your Name</label>
                   <input 
                     {...register("name")}
+                    onInput={(e) => {
+                      const input = e.target as HTMLInputElement;
+                      input.value = input.value.replace(/[^A-Za-z\s]/g, "");
+                    }}
                     placeholder="John Doe"
                     className="w-full bg-secondary/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-foreground/50"
                   />
@@ -152,7 +156,12 @@ export default function Contact() {
                   <label className="text-sm font-medium ml-1">Phone Number</label>
                   <input 
                     {...register("phone")}
-                    placeholder="+91 98765 43210"
+                    maxLength={10}
+                    onInput={(e) => {
+                      const input = e.target as HTMLInputElement;
+                      input.value = input.value.replace(/[^0-9]/g, "").slice(0, 10);
+                    }}
+                    placeholder="9876543210"
                     className="w-full bg-secondary/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-foreground/50"
                   />
                   {errors.phone && <p className="text-destructive text-xs ml-1">{errors.phone.message}</p>}
