@@ -116,7 +116,7 @@ export default function About() {
               About <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
             <div className="w-24 h-1.5 bg-[#3b82f6] mx-auto mt-6 mb-8 rounded-full" />
-            <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-white/60 max-w-5xl mx-auto font-light leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis">
               Empowering enterprises with cutting-edge infrastructure and security solutions designed for the future.
             </p>
           </motion.div>
@@ -169,7 +169,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tighter font-poppins">Our <span className="text-[#3b82f6]">Services</span></h2>
             <div className="w-20 h-1 bg-[#3b82f6] mx-auto mb-8 rounded-full" />
-            <p className="text-white/60 text-xl leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-5xl mx-auto whitespace-nowrap overflow-hidden text-ellipsis">
               Comprehensive technology services tailored to secure, connect, and empower your enterprise.
             </p>
           </div>
