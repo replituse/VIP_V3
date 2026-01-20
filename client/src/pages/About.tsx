@@ -5,6 +5,10 @@ import { Shield, Target, Zap, Award, CheckCircle2, Rocket, Network, ShieldAlert,
 import { Link } from "wouter";
 import { useEffect, useState, useRef } from "react";
 import stockDataCenter from "@assets/stock_images/modern_datacenter_se_70373e6b.jpg";
+import networkingVideo from "@assets/generated_videos/digital_networking_and_data_flow..mp4";
+import networkImg from "@assets/stock_images/technology_networkin_80809026.jpg";
+import teamImg from "@assets/stock_images/professional_team_wo_80221bd7.jpg";
+import datacenterImg from "@assets/stock_images/data_center_server_r_ac3b04d4.jpg";
 
 function Counter({ value, duration = 2 }: { value: string, duration?: number }) {
   const [count, setCount] = useState(0);
@@ -58,12 +62,12 @@ export default function About() {
   ];
 
   const whatWeDo = [
-    { title: "IT Networking & Infrastructure", icon: Network, animation: "rotate" },
-    { title: "CCTV & AI Surveillance Systems", icon: ShieldAlert, animation: "pulse" },
-    { title: "Fire, Thermal & Safety Solutions", icon: Flame, animation: "bounce" },
-    { title: "Access Control & Biometrics", icon: Fingerprint, animation: "scan" },
-    { title: "Communication & AV Systems", icon: MessageSquare, animation: "ping" },
-    { title: "IoT, Cloud & Software Solutions", icon: Cloud, animation: "float" },
+    { title: "IT Networking & Infrastructure", icon: Network, animation: "rotate", image: networkImg },
+    { title: "CCTV & AI Surveillance Systems", icon: ShieldAlert, animation: "pulse", image: teamImg },
+    { title: "Fire, Thermal & Safety Solutions", icon: Flame, animation: "bounce", image: datacenterImg },
+    { title: "Access Control & Biometrics", icon: Fingerprint, animation: "scan", image: networkImg },
+    { title: "Communication & AV Systems", icon: MessageSquare, animation: "ping", image: teamImg },
+    { title: "IoT, Cloud & Software Solutions", icon: Cloud, animation: "float", image: datacenterImg },
   ];
 
   const getAnimationProps = (type: string) => {
@@ -92,11 +96,15 @@ export default function About() {
       <Navbar />
 
       {/* 1. About Header */}
-      <section className="relative pt-40 pb-24 overflow-hidden min-h-[60vh] flex items-center">
+      <section className="relative pt-40 pb-24 overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center opacity-30 animate-pulse"
-            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')` }}
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-40"
+            src={networkingVideo}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#050a15]/90 via-[#050a15]/70 to-[#050a15]" />
           <motion.div 
@@ -155,7 +163,7 @@ export default function About() {
               We design, deploy, and support end-to-end technology solutions that integrate networking, security, communication, automation, and cloud platforms. Our solutions are engineered to meet enterprise standards while remaining flexible for evolving business needs.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {whatWeDo.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -163,16 +171,27 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                whileHover={{ scale: 1.05, borderColor: "rgba(59, 130, 246, 0.5)" }}
-                className="bg-[#0d1526] p-8 rounded-3xl border border-white/5 flex items-center gap-6 group hover:border-[#3b82f6]/40 transition-all duration-300 cursor-default"
+                whileHover={{ scale: 1.02, borderColor: "rgba(59, 130, 246, 0.5)" }}
+                className="bg-[#0d1526] rounded-3xl border border-white/5 overflow-hidden group hover:border-[#3b82f6]/40 transition-all duration-300 cursor-default flex flex-col"
               >
-                <motion.div 
-                  className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors"
-                  {...getAnimationProps(item.animation)}
-                >
-                  <item.icon className="w-7 h-7 text-[#3b82f6]" />
-                </motion.div>
-                <h4 className="font-bold text-lg leading-tight group-hover:text-[#3b82f6] transition-colors">{item.title}</h4>
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] to-transparent" />
+                  <motion.div 
+                    className="absolute bottom-4 left-6 w-14 h-14 rounded-2xl bg-[#3b82f6]/20 backdrop-blur-md flex items-center justify-center border border-[#3b82f6]/30 group-hover:bg-[#3b82f6]/40 transition-colors"
+                    {...getAnimationProps(item.animation)}
+                  >
+                    <item.icon className="w-7 h-7 text-[#3b82f6]" />
+                  </motion.div>
+                </div>
+                <div className="p-8 pt-4">
+                  <h4 className="font-bold text-xl leading-tight group-hover:text-[#3b82f6] transition-colors">{item.title}</h4>
+                  <p className="text-white/40 mt-2 text-sm">Professional solutions tailored for enterprise needs.</p>
+                </div>
               </motion.div>
             ))}
           </div>
