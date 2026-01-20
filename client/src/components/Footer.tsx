@@ -25,11 +25,10 @@ export function Footer() {
 
   const socialLinks = [
     { Icon: FaFacebookF, color: "bg-[#1877F2]", hoverColor: "hover:bg-[#1154aa]", href: "#" },
-    { Icon: FaTwitter, color: "bg-[#1DA1F2]", hoverColor: "hover:bg-[#1470a8]", href: "#" },
+    { Icon: FaWhatsapp, color: "bg-[#25D366]", hoverColor: "hover:bg-[#198f45]", href: "#" },
     { Icon: FaLinkedinIn, color: "bg-[#0A66C2]", hoverColor: "hover:bg-[#074787]", href: "#" },
     { Icon: FaInstagram, color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]", hoverColor: "hover:brightness-75", href: "#" },
-    { Icon: FaWhatsapp, color: "bg-[#25D366]", hoverColor: "hover:bg-[#198f45]", href: "#" },
-    { Icon: FaYoutube, color: "bg-[#FF0000]", hoverColor: "hover:bg-[#b30000]", href: "#" }
+    { Icon: FaTwitter, color: "bg-[#1DA1F2]", hoverColor: "hover:bg-[#1470a8]", href: "#" }
   ];
 
   return (
