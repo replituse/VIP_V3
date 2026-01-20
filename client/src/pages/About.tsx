@@ -83,12 +83,12 @@ export default function About() {
   };
 
   const industries = [
-    { title: "Corporate Offices", icon: Briefcase },
-    { title: "Manufacturing & Warehousing", icon: Network },
-    { title: "Retail & Commercial Spaces", icon: Rocket },
-    { title: "Education Institutions", icon: Lightbulb },
-    { title: "Healthcare Facilities", icon: HeartHandshake },
-    { title: "Residential & Gated Communities", icon: UserCheck },
+    { title: "Corporate Offices", icon: Briefcase, image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" },
+    { title: "Manufacturing & Warehousing", icon: Network, image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" },
+    { title: "Retail & Commercial Spaces", icon: Rocket, image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800" },
+    { title: "Education Institutions", icon: Lightbulb, image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" },
+    { title: "Healthcare Facilities", icon: HeartHandshake, image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" },
+    { title: "Residential & Gated Communities", icon: UserCheck, image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800" },
   ];
 
   return (
@@ -96,37 +96,43 @@ export default function About() {
       <Navbar />
 
       {/* 1. About Header */}
-      <section className="relative pt-40 pb-24 overflow-hidden min-h-[70vh] flex items-center">
+      <section className="relative pt-40 pb-24 overflow-hidden min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="w-full h-full object-cover opacity-40"
-            src={networkingVideo}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050a15]/90 via-[#050a15]/70 to-[#050a15]" />
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10"
-            animate={{ x: ['-100%', '100%'] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          <div className="absolute inset-0 bg-[#050a15]/90 z-10" />
+          <div 
+            className="w-full h-full bg-cover bg-center opacity-30 animate-pulse"
+            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')` }}
           />
         </div>
 
-        <div className="container px-4 md:px-6 mx-auto relative z-10">
+        <div className="container px-4 md:px-6 mx-auto relative z-20">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
             className="max-w-5xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 uppercase">
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 uppercase">
               About <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Where Technology Meets Reliability
-            </p>
+            
+            <div className="relative max-w-4xl mx-auto rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full aspect-video object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                src={networkingVideo}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050a15] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
+                <p className="text-xl md:text-2xl text-white font-medium drop-shadow-lg tracking-wide uppercase">
+                  Where Technology Meets Reliability
+                </p>
+                <div className="w-24 h-1 bg-[#3b82f6] mt-4 rounded-full" />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -245,63 +251,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 5. Why We Are Different */}
-      <section className="py-24 bg-gradient-to-b from-[#050a15] to-[#0d1526]">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">Why We Are <span className="text-[#3b82f6]">Different</span></h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              "Client-focused solution design",
-              "Enterprise-grade technologies",
-              "Skilled and certified professionals",
-              "Strong after-sales and AMC support",
-              "Commitment to reliability and performance"
-            ].map((point, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-card/50 p-8 rounded-3xl border border-white/5 flex items-center gap-4 group hover:border-[#3b82f6]/40 transition-all"
-              >
-                <CheckCircle2 className="w-6 h-6 text-[#3b82f6] shrink-0" />
-                <span className="text-lg font-medium">{point}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Industries We Serve */}
-      <section className="py-24">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">Industries We <span className="text-[#3b82f6]">Serve</span></h2>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-            {industries.map((industry, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-[#0d1526]/40 p-10 rounded-[2.5rem] border border-white/5 text-center group hover:border-[#3b82f6]/40 transition-all"
-              >
-                <div className="w-20 h-20 mx-auto bg-[#3b82f6]/10 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <industry.icon className="w-10 h-10 text-[#3b82f6]" />
-                </div>
-                <h4 className="text-xl font-bold uppercase tracking-tight">{industry.title}</h4>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Trust & Credibility */}
+      {/* 6. Trust & Credibility (Stats) */}
       <section className="py-24 bg-[#0d1526]/50 border-y border-white/5">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -326,6 +276,75 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* 5. Why We Are Different */}
+      <section className="py-24 bg-gradient-to-b from-[#050a15] to-[#0d1526]">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">Why We Are <span className="text-[#3b82f6]">Different</span></h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { text: "Client-focused solution design", img: networkImg },
+              { text: "Enterprise-grade technologies", img: datacenterImg },
+              { text: "Skilled and certified professionals", img: teamImg },
+              { text: "Strong after-sales and AMC support", img: networkImg },
+              { text: "Commitment to reliability and performance", img: datacenterImg }
+            ].map((point, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-[#0d1526] rounded-3xl border border-white/5 overflow-hidden group hover:border-[#3b82f6]/40 transition-all flex flex-col"
+              >
+                <div className="h-40 overflow-hidden relative">
+                  <img src={point.img} className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] to-transparent" />
+                </div>
+                <div className="p-6 flex items-center gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-[#3b82f6] shrink-0" />
+                  <span className="text-lg font-medium">{point.text}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Industries We Serve */}
+      <section className="py-24">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">Industries We <span className="text-[#3b82f6]">Serve</span></h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {industries.map((industry, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-[#0d1526]/40 rounded-[2.5rem] border border-white/5 overflow-hidden group hover:border-[#3b82f6]/40 transition-all flex flex-col"
+              >
+                <div className="h-48 overflow-hidden relative">
+                  <img src={industry.image} className="w-full h-full object-cover opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] to-transparent" />
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-16 h-16 bg-[#3b82f6]/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-[#3b82f6]/30 group-hover:scale-110 transition-transform">
+                    <industry.icon className="w-8 h-8 text-[#3b82f6]" />
+                  </div>
+                </div>
+                <div className="p-8 text-center">
+                  <h4 className="text-xl font-bold uppercase tracking-tight group-hover:text-[#3b82f6] transition-colors">{industry.title}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* 8. Call to Action */}
       <section className="py-16 bg-[#3b82f6] relative overflow-hidden">
