@@ -1,9 +1,53 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Shield, Target, Zap, Award, CheckCircle2, Rocket, Network, ShieldAlert, Flame, Fingerprint, MessageSquare, Cloud, Lightbulb, HeartHandshake, UserCheck, Briefcase } from "lucide-react";
 import { Link } from "wouter";
+import { useEffect, useState, useRef } from "react";
 import stockDataCenter from "@assets/stock_images/modern_datacenter_se_70373e6b.jpg";
+
+function Counter({ value, duration = 2 }: { value: string, duration?: number }) {
+  const [count, setCount] = useState(0);
+  const target = parseInt(value.replace(/\D/g, ''));
+  const suffix = value.replace(/\d/g, '');
+  const nodeRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (nodeRef.current) observer.observe(nodeRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView) return;
+
+    let start = 0;
+    const end = target;
+    const totalMiliseconds = duration * 1000;
+    const increment = end / (totalMiliseconds / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [inView, target, duration]);
+
+  return <span ref={nodeRef}>{count}{suffix}</span>;
+}
 
 export default function About() {
   const stats = [
@@ -101,12 +145,13 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-[#0d1526] p-8 rounded-3xl border border-white/5 flex items-center gap-6 group hover:border-[#3b82f6]/40 transition-all duration-300"
+                whileHover={{ scale: 1.05, borderColor: "rgba(59, 130, 246, 0.5)" }}
+                className="bg-[#0d1526] p-8 rounded-3xl border border-white/5 flex items-center gap-6 group hover:border-[#3b82f6]/40 transition-all duration-300 cursor-default"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors group-hover:rotate-12">
                   <item.icon className="w-7 h-7 text-[#3b82f6]" />
                 </div>
-                <h4 className="font-bold text-lg leading-tight">{item.title}</h4>
+                <h4 className="font-bold text-lg leading-tight group-hover:text-[#3b82f6] transition-colors">{item.title}</h4>
               </motion.div>
             ))}
           </div>
@@ -220,7 +265,9 @@ export default function About() {
                 <div className="w-16 h-16 mx-auto bg-[#3b82f6]/10 rounded-2xl flex items-center justify-center mb-6 border border-[#3b82f6]/20">
                   <stat.icon className="w-8 h-8 text-[#3b82f6]" />
                 </div>
-                <div className="text-4xl md:text-5xl font-bold mb-2 font-poppins tracking-tighter">{stat.value}</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2 font-poppins tracking-tighter">
+                  <Counter value={stat.value} />
+                </div>
                 <div className="text-white/40 uppercase tracking-widest text-xs font-bold">{stat.label}</div>
               </motion.div>
             ))}
@@ -229,34 +276,25 @@ export default function About() {
       </section>
 
       {/* 8. Call to Action */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#3b82f6]/10 blur-[150px] -z-10" />
-        <div className="container px-4 md:px-6 mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto space-y-12"
-          >
-            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-tight font-poppins">
-              Looking for a reliable <br /> technology partner?
-            </h2>
-            <p className="text-white/60 text-xl md:text-2xl font-light">
-              Let VIP Networks design the right solution for your business.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
+      <section className="py-16 bg-[#3b82f6] relative overflow-hidden">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
+            <div className="text-left space-y-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tighter leading-tight font-poppins">
+                Ready to Collaborate with us?
+              </h2>
+              <p className="text-white/80 text-lg md:text-xl font-medium">
+                Let VIP Networks design the right solution for your business.
+              </p>
+            </div>
+            <div className="shrink-0">
               <Link href="/contact">
-                <button className="px-12 py-5 bg-[#3b82f6] text-white font-bold rounded-full shadow-2xl hover:scale-105 transition-transform uppercase tracking-widest text-lg font-poppins cursor-pointer">
+                <button className="px-10 py-4 bg-white text-[#3b82f6] hover:bg-black hover:text-white font-bold rounded-full shadow-xl transition-all uppercase tracking-widest text-base font-poppins cursor-pointer">
                   Contact Us
                 </button>
               </Link>
-              <Link href="/services">
-                <button className="px-12 py-5 bg-white/5 border-2 border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all uppercase tracking-widest text-lg font-poppins cursor-pointer">
-                  Our Services
-                </button>
-              </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
