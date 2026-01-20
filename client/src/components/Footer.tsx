@@ -3,43 +3,41 @@ import logo from "@assets/VIP_Networks_logo_(2)_1768635368208.png";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 export function Footer() {
   const [email, setEmail] = useState("");
-  const { toast } = useToast();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleSubscribe = () => {
+    setError("");
+    setSuccess(false);
+
     if (!email || !email.includes("@")) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address to subscribe.",
-        variant: "destructive",
-      });
+      setError("Please enter a valid email address.");
       return;
     }
-    toast({
-      title: "Success!",
-      description: "Thank you for subscribing to our newsletter.",
-    });
+    
+    setSuccess(true);
     setEmail("");
+    setTimeout(() => setSuccess(false), 3000);
   };
 
   const socialLinks = [
-    { Icon: FaFacebookF, color: "bg-[#1877F2]", hoverColor: "hover:bg-[#166fe5]", href: "#" },
-    { Icon: FaTwitter, color: "bg-[#1DA1F2]", hoverColor: "hover:bg-[#1a91da]", href: "#" },
-    { Icon: FaLinkedinIn, color: "bg-[#0A66C2]", hoverColor: "hover:bg-[#0958a8]", href: "#" },
-    { Icon: FaInstagram, color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]", hoverColor: "hover:opacity-90", href: "#" },
-    { Icon: FaWhatsapp, color: "bg-[#25D366]", hoverColor: "hover:bg-[#20bd5a]", href: "#" },
-    { Icon: FaYoutube, color: "bg-[#FF0000]", hoverColor: "hover:bg-[#e60000]", href: "#" }
+    { Icon: FaFacebookF, color: "bg-[#1877F2]", hoverColor: "hover:bg-[#1154aa]", href: "#" },
+    { Icon: FaTwitter, color: "bg-[#1DA1F2]", hoverColor: "hover:bg-[#1470a8]", href: "#" },
+    { Icon: FaLinkedinIn, color: "bg-[#0A66C2]", hoverColor: "hover:bg-[#074787]", href: "#" },
+    { Icon: FaInstagram, color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]", hoverColor: "hover:brightness-75", href: "#" },
+    { Icon: FaWhatsapp, color: "bg-[#25D366]", hoverColor: "hover:bg-[#198f45]", href: "#" },
+    { Icon: FaYoutube, color: "bg-[#FF0000]", hoverColor: "hover:bg-[#b30000]", href: "#" }
   ];
 
   return (
     <footer className="bg-[#050a15] border-t border-white/5 pt-20 pb-10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-12 mb-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 mb-16 items-start">
           {/* Brand */}
-          <div className="space-y-6 lg:col-span-4 pr-4">
+          <div className="space-y-6 lg:col-span-4">
             <div className="flex items-center gap-3">
               <img src={logo} alt="VIP Networks" className="w-16 h-16 object-contain bg-white/5 rounded-full p-1" />
               <div>
@@ -127,25 +125,29 @@ export function Footer() {
           </div>
 
           {/* Newsletter / Subscribe */}
-          <div className="lg:col-span-2 lg:text-right">
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px] lg:text-right">Subscribe</h4>
-            <p className="text-white/50 text-[15px] mb-6 leading-relaxed lg:text-right">
+          <div className="lg:col-span-2 lg:ml-auto">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-[15px]">Subscribe</h4>
+            <p className="text-white/50 text-[15px] mb-6 leading-relaxed">
               Stay updated with our latest technology solutions and industry insights.
             </p>
-            <div className="relative">
-              <input 
-                type="email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address" 
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 pr-12 text-sm text-white focus:outline-none focus:border-[#3b82f6]/50 transition-all lg:text-left"
-              />
-              <button 
-                onClick={handleSubscribe}
-                className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-[#3b82f6] text-white flex items-center justify-center hover:bg-[#2563eb] transition-colors shadow-lg shadow-[#3b82f6]/20"
-              >
-                <Send size={14} />
-              </button>
+            <div className="space-y-2">
+              <div className="relative">
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email address" 
+                  className={`w-full bg-white/5 border rounded-xl py-3 px-4 pr-12 text-sm text-white focus:outline-none transition-all ${error ? 'border-red-500' : 'border-white/10 focus:border-[#3b82f6]/50'}`}
+                />
+                <button 
+                  onClick={handleSubscribe}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-[#3b82f6] text-white flex items-center justify-center hover:bg-[#2563eb] transition-colors shadow-lg shadow-[#3b82f6]/20"
+                >
+                  <Send size={14} />
+                </button>
+              </div>
+              {error && <p className="text-red-500 text-xs mt-1 animate-in fade-in slide-in-from-top-1">{error}</p>}
+              {success && <p className="text-green-500 text-xs mt-1 animate-in fade-in slide-in-from-top-1">Successfully subscribed!</p>}
             </div>
           </div>
         </div>
