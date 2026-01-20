@@ -10,7 +10,12 @@ import { z } from "zod";
 import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 
 // Frontend validation schema
-const contactSchema = api.contact.submit.input;
+const contactSchema = z.object({
+  name: z.string().min(1, "Name is required").regex(/^[A-Za-z\s]+$/, "Name can only contain letters"),
+  phone: z.string().min(1, "Phone number is required").regex(/^\+?[\d\s-]+$/, "Phone must be a valid number"),
+  email: z.string().email("Please enter a valid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
 
 export default function Contact() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactMessageInput>({
