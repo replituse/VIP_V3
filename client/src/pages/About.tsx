@@ -80,29 +80,39 @@ export default function About() {
       <Navbar />
 
       {/* 1. About Header */}
-      <section className="relative pt-40 pb-24 overflow-hidden min-h-[50vh] flex items-center">
+      <section className="relative pt-40 pb-24 overflow-hidden min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={stockDataCenter} 
-            alt="Data Center" 
-            className="w-full h-full object-cover opacity-20"
+          <div 
+            className="w-full h-full bg-cover bg-center opacity-30 animate-pulse"
+            style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050a15]/80 via-[#050a15] to-[#050a15]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050a15]/90 via-[#050a15]/70 to-[#050a15]" />
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10"
+            animate={{ x: ['-100%', '100%'] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          />
         </div>
 
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="max-w-5xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-7xl font-bold mb-6 uppercase tracking-tighter leading-tight font-poppins">
-              About <span className="text-[#3b82f6]">VIP Networks</span>
+            <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none font-poppins">
+              ABOUT <span className="text-[#3b82f6] drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">VIP NETWORKS</span>
             </h1>
-            <p className="text-[#3b82f6] text-xl md:text-2xl font-bold uppercase tracking-widest">
-              Where Technology Meets Reliability
+            <p className="text-[#3b82f6] text-xl md:text-3xl font-bold uppercase tracking-[0.3em] bg-clip-text text-transparent bg-gradient-to-r from-[#3b82f6] to-blue-400">
+              WHERE TECHNOLOGY MEETS RELIABILITY
             </p>
+            <motion.div 
+              initial={{ width: 0 }}
+              animate={{ width: "100px" }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="h-1 bg-[#3b82f6] mx-auto mt-8 rounded-full"
+            />
           </motion.div>
         </div>
       </section>
@@ -115,13 +125,15 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0d1526]/50 backdrop-blur-sm p-12 rounded-[2.5rem] border border-white/5"
+              className="bg-[#0d1526]/80 backdrop-blur-xl p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative"
             >
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-8">
-                VIP Networks is a technology-driven IT and infrastructure solutions company delivering reliable, secure, and scalable systems for businesses across industries. We specialize in networking, surveillance, security, automation, and digital transformation solutions designed to improve operational efficiency and safety.
+              <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-[#3b82f6]/30 rounded-tl-[2.5rem]" />
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-r-2 border-b-2 border-[#3b82f6]/30 rounded-br-[2.5rem]" />
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 font-light italic">
+                VIP Networks is a technology-driven IT and infrastructure solutions company delivering reliable, secure, and scalable systems for businesses across industries.
               </p>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
-                With a focus on innovation and performance, we help organizations build future-ready technology environments that support growth and continuity.
+              <p className="text-lg md:text-xl text-white/70 leading-relaxed">
+                We specialize in networking, surveillance, security, automation, and digital transformation solutions designed to improve operational efficiency and safety. With a focus on innovation and performance, we help organizations build future-ready technology environments that support growth and continuity.
               </p>
             </motion.div>
           </div>
