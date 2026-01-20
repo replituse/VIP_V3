@@ -9,7 +9,7 @@ interface ServiceCardProps {
   delay?: number;
 }
 
-export function ServiceCard({ title, description, image, delay = 0, showDescription = true }: any) {
+export function ServiceCard({ title, description, image, delay = 0, showDescription = true, index = 0 }: any) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
