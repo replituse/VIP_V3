@@ -187,12 +187,18 @@ export default function About() {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden h-full"
+              whileHover={{ y: -10, borderColor: "rgba(59, 130, 246, 0.5)", scale: 1.02 }}
+              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden h-full transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
             >
-              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/10 transition-colors" />
-              <Target className="w-16 h-16 text-[#3b82f6] mb-8" />
-              <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins">Our Mission</h2>
-              <p className="text-white/60 text-lg leading-relaxed">
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/15 transition-colors duration-500" />
+              <motion.div
+                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Target className="w-16 h-16 text-[#3b82f6] mb-8" />
+              </motion.div>
+              <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins group-hover:text-[#3b82f6] transition-colors">Our Mission</h2>
+              <p className="text-white/60 text-lg leading-relaxed group-hover:text-white/80 transition-colors">
                 To deliver dependable, innovative, and secure technology solutions that empower businesses to operate efficiently and confidently.
               </p>
             </motion.div>
@@ -201,12 +207,18 @@ export default function About() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden h-full"
+              whileHover={{ y: -10, borderColor: "rgba(59, 130, 246, 0.5)", scale: 1.02 }}
+              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden h-full transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
             >
-              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/10 transition-colors" />
-              <Rocket className="w-16 h-16 text-[#3b82f6] mb-8" />
-              <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins">Our Vision</h2>
-              <p className="text-white/60 text-lg leading-relaxed">
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/15 transition-colors duration-500" />
+              <motion.div
+                whileHover={{ y: [-2, 2, -2], x: [1, -1, 1], rotate: [0, 5, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                <Rocket className="w-16 h-16 text-[#3b82f6] mb-8" />
+              </motion.div>
+              <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins group-hover:text-[#3b82f6] transition-colors">Our Vision</h2>
+              <p className="text-white/60 text-lg leading-relaxed group-hover:text-white/80 transition-colors">
                 To be a trusted technology partner recognized for quality, innovation, and long-term customer relationships.
               </p>
             </motion.div>
