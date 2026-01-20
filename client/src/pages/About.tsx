@@ -1,44 +1,41 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Shield, Target, Zap, Award, CheckCircle2, Building2, Users2, Rocket } from "lucide-react";
+import { Shield, Target, Zap, Award, CheckCircle2, Rocket, Network, ShieldAlert, Flame, Fingerprint, MessageSquare, Cloud, Lightbulb, HeartHandshake, UserCheck, Briefcase } from "lucide-react";
 import stockDataCenter from "@assets/stock_images/modern_datacenter_se_70373e6b.jpg";
-import stockMeeting from "@assets/stock_images/professional_busines_c2a75c63.jpg";
-import stockSecurity from "@assets/stock_images/high-tech_security_c_fccaba08.jpg";
-import stockNetwork from "@assets/stock_images/advanced_networking__5e2a61e1.jpg";
-
-const stats = [
-  { label: "Years Experience", value: "10+", icon: Award },
-  { label: "Projects Delivered", value: "500+", icon: Rocket },
-  { label: "Certified Engineers", value: "25+", icon: Users2 },
-  { label: "Client Satisfaction", value: "99%", icon: CheckCircle2 },
-];
-
-const values = [
-  {
-    title: "Technical Excellence",
-    desc: "We pride ourselves on staying at the forefront of IT innovation, ensuring our clients receive the most advanced and reliable infrastructure solutions available in the industry.",
-    image: stockNetwork,
-  },
-  {
-    title: "Client-Centric Approach",
-    desc: "Your success is our priority. We work closely with every partner to design bespoke systems that address unique operational challenges and drive business growth.",
-    image: stockMeeting,
-  },
-  {
-    title: "Uncompromising Security",
-    desc: "In an increasingly complex digital landscape, we provide robust, multi-layered security frameworks that protect both physical assets and sensitive digital information.",
-    image: stockSecurity,
-  },
-];
 
 export default function About() {
+  const stats = [
+    { label: "Years Experience", value: "10+", icon: Award },
+    { label: "Projects Delivered", value: "500+", icon: Rocket },
+    { label: "Technology Partners", value: "20+", icon: Network },
+    { label: "Client Relationships", value: "100%", icon: HeartHandshake },
+  ];
+
+  const whatWeDo = [
+    { title: "IT Networking & Infrastructure", icon: Network },
+    { title: "CCTV & AI Surveillance Systems", icon: ShieldAlert },
+    { title: "Fire, Thermal & Safety Solutions", icon: Flame },
+    { title: "Access Control & Biometrics", icon: Fingerprint },
+    { title: "Communication & AV Systems", icon: MessageSquare },
+    { title: "IoT, Cloud & Software Solutions", icon: Cloud },
+  ];
+
+  const industries = [
+    { title: "Corporate Offices", icon: Briefcase },
+    { title: "Manufacturing & Warehousing", icon: Network },
+    { title: "Retail & Commercial Spaces", icon: Rocket },
+    { title: "Education Institutions", icon: Lightbulb },
+    { title: "Healthcare Facilities", icon: HeartHandshake },
+    { title: "Residential & Gated Communities", icon: UserCheck },
+  ];
+
   return (
     <div className="min-h-screen bg-[#050a15] text-white overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden min-h-[60vh] flex items-center">
+      {/* 1. About Header */}
+      <section className="relative pt-40 pb-24 overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img 
             src={stockDataCenter} 
@@ -55,31 +52,81 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-7xl font-bold mb-8 uppercase tracking-tighter leading-tight font-poppins">
-              Pioneering the Future of <span className="text-[#3b82f6]">Infrastructure</span>
+            <h1 className="text-4xl md:text-7xl font-bold mb-6 uppercase tracking-tighter leading-tight font-poppins">
+              About <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-light">
-              VIP Networks is India's leading system integrator, providing end-to-end IT, security, and networking solutions that empower modern enterprises.
+            <p className="text-[#3b82f6] text-xl md:text-2xl font-bold uppercase tracking-widest">
+              Where Technology Meets Reliability
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-24 relative">
+      {/* 2. Company Overview */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-[#0d1526]/50 backdrop-blur-sm p-12 rounded-[2.5rem] border border-white/5"
+            >
+              <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-8">
+                VIP Networks is a technology-driven IT and infrastructure solutions company delivering reliable, secure, and scalable systems for businesses across industries. We specialize in networking, surveillance, security, automation, and digital transformation solutions designed to improve operational efficiency and safety.
+              </p>
+              <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
+                With a focus on innovation and performance, we help organizations build future-ready technology environments that support growth and continuity.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. What We Do */}
+      <section className="py-24 bg-secondary/10">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">What We <span className="text-[#3b82f6]">Do</span></h2>
+            <p className="text-white/60 text-lg leading-relaxed">
+              We design, deploy, and support end-to-end technology solutions that integrate networking, security, communication, automation, and cloud platforms. Our solutions are engineered to meet enterprise standards while remaining flexible for evolving business needs.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whatWeDo.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-[#0d1526] p-8 rounded-3xl border border-white/5 flex items-center gap-6 group hover:border-[#3b82f6]/40 transition-all duration-300"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center shrink-0 border border-[#3b82f6]/20 group-hover:bg-[#3b82f6]/20 transition-colors">
+                  <item.icon className="w-7 h-7 text-[#3b82f6]" />
+                </div>
+                <h4 className="font-bold text-lg leading-tight">{item.title}</h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Mission & Vision */}
+      <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden"
+              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden h-full"
             >
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/10 transition-colors" />
               <Target className="w-16 h-16 text-[#3b82f6] mb-8" />
               <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins">Our Mission</h2>
               <p className="text-white/60 text-lg leading-relaxed">
-                To empower organizations with reliable, cutting-edge technology infrastructure that ensures maximum security, seamless connectivity, and operational efficiency. We strive to be the most trusted technical partner for businesses across the region.
+                To deliver dependable, innovative, and secure technology solutions that empower businesses to operate efficiently and confidently.
               </p>
             </motion.div>
 
@@ -87,21 +134,77 @@ export default function About() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden"
+              className="bg-[#0d1526] p-12 rounded-[2.5rem] border border-white/5 relative group overflow-hidden h-full"
             >
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full group-hover:bg-[#3b82f6]/10 transition-colors" />
-              <Zap className="w-16 h-16 text-[#3b82f6] mb-8" />
+              <Rocket className="w-16 h-16 text-[#3b82f6] mb-8" />
               <h2 className="text-3xl font-bold mb-6 uppercase tracking-tight font-poppins">Our Vision</h2>
               <p className="text-white/60 text-lg leading-relaxed">
-                To redefine the standards of system integration through technical excellence, innovation, and a relentless focus on customer success. We envision a future where every business operates on a resilient and intelligent digital foundation.
+                To be a trusted technology partner recognized for quality, innovation, and long-term customer relationships.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-[#0d1526]/50 border-y border-white/5 backdrop-blur-sm">
+      {/* 5. Why We Are Different */}
+      <section className="py-24 bg-gradient-to-b from-[#050a15] to-[#0d1526]">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">Why We Are <span className="text-[#3b82f6]">Different</span></h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              "Client-focused solution design",
+              "Enterprise-grade technologies",
+              "Skilled and certified professionals",
+              "Strong after-sales and AMC support",
+              "Commitment to reliability and performance"
+            ].map((point, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-card/50 p-8 rounded-3xl border border-white/5 flex items-center gap-4 group hover:border-[#3b82f6]/40 transition-all"
+              >
+                <CheckCircle2 className="w-6 h-6 text-[#3b82f6] shrink-0" />
+                <span className="text-lg font-medium">{point}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Industries We Serve */}
+      <section className="py-24">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 uppercase tracking-tight font-poppins">Industries We <span className="text-[#3b82f6]">Serve</span></h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+            {industries.map((industry, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-[#0d1526]/40 p-10 rounded-[2.5rem] border border-white/5 text-center group hover:border-[#3b82f6]/40 transition-all"
+              >
+                <div className="w-20 h-20 mx-auto bg-[#3b82f6]/10 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <industry.icon className="w-10 h-10 text-[#3b82f6]" />
+                </div>
+                <h4 className="text-xl font-bold uppercase tracking-tight">{industry.title}</h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Trust & Credibility */}
+      <section className="py-24 bg-[#0d1526]/50 border-y border-white/5">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {stats.map((stat, i) => (
@@ -124,67 +227,35 @@ export default function About() {
         </div>
       </section>
 
-      {/* Core Values / Detailed Sections */}
-      <section className="py-32">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 uppercase tracking-tighter font-poppins">
-              The VIP <span className="text-[#3b82f6]">Standard</span>
+      {/* 8. Call to Action */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#3b82f6]/10 blur-[150px] -z-10" />
+        <div className="container px-4 md:px-6 mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto space-y-12"
+          >
+            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-tight font-poppins">
+              Looking for a reliable <br /> technology partner?
             </h2>
-            <p className="text-white/60 text-lg">
-              Our approach combines decades of technical expertise with a commitment to delivering future-ready infrastructure.
+            <p className="text-white/60 text-xl md:text-2xl font-light">
+              Let VIP Networks design the right solution for your business.
             </p>
-          </div>
-
-          <div className="space-y-32">
-            {values.map((value, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-16`}
-              >
-                <div className="flex-1 space-y-8">
-                  <div className="inline-block px-6 py-2 bg-[#3b82f6]/10 rounded-full border border-[#3b82f6]/20 text-[#3b82f6] text-sm font-bold uppercase tracking-widest">
-                    Standard 0{i + 1}
-                  </div>
-                  <h3 className="text-3xl md:text-5xl font-bold uppercase tracking-tight font-poppins">{value.title}</h3>
-                  <p className="text-white/60 text-xl leading-relaxed font-light">
-                    {value.desc}
-                  </p>
-                </div>
-                <div className="flex-1 w-full aspect-video md:aspect-square overflow-hidden rounded-[3rem] border border-white/5 relative group">
-                  <img 
-                    src={value.image} 
-                    alt={value.title} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050a15]/60 to-transparent" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24 bg-[#3b82f6] relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-10">
-            <h2 className="text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter leading-tight font-poppins">
-              Build Your Digital <br /> Foundation with Us
-            </h2>
-            <p className="text-white/90 text-xl md:text-2xl font-light">
-              Experience the perfect blend of high-end security and seamless connectivity.
-            </p>
-            <div className="flex justify-center">
-              <button className="px-12 py-5 bg-white text-[#3b82f6] font-bold rounded-full shadow-2xl hover:scale-105 transition-transform uppercase tracking-widest text-lg font-poppins">
-                Connect With Experts
-              </button>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link href="/contact">
+                <button className="px-12 py-5 bg-[#3b82f6] text-white font-bold rounded-full shadow-2xl hover:scale-105 transition-transform uppercase tracking-widest text-lg font-poppins cursor-pointer">
+                  Contact Us
+                </button>
+              </Link>
+              <Link href="/services">
+                <button className="px-12 py-5 bg-white/5 border-2 border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all uppercase tracking-widest text-lg font-poppins cursor-pointer">
+                  Our Services
+                </button>
+              </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
