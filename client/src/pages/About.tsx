@@ -112,10 +112,9 @@ export default function About() {
             transition={{ duration: 1 }}
             className="max-w-5xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter">
+            <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter">
               About <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
-            <div className="w-24 h-1.5 bg-[#3b82f6] mx-auto mt-6 mb-8 rounded-full" />
             <p className="text-lg md:text-xl text-white/60 max-w-5xl mx-auto font-light leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis">
               Empowering enterprises with cutting-edge infrastructure and security solutions designed for the future.
             </p>
@@ -157,6 +156,11 @@ export default function About() {
                   src={networkingVideo}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050a15] via-transparent to-transparent opacity-40" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-3xl md:text-5xl font-bold text-white/90 uppercase tracking-tighter drop-shadow-2xl">
+                    VIP Networks
+                  </span>
+                </div>
               </motion.div>
             </div>
           </div>
