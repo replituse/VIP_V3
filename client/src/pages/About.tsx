@@ -112,10 +112,10 @@ export default function About() {
             transition={{ duration: 1 }}
             className="max-w-5xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter">
-              About <span className="text-[#3b82f6]">VIP Networks</span>
+            <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">
+              About &nbsp; <span className="text-[#3b82f6]">VIP Networks</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/60 max-w-5xl mx-auto font-light leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis">
+            <p className="text-lg md:text-xl text-white/60 max-w-5xl mx-auto font-light leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis mt-8">
               Empowering enterprises with cutting-edge infrastructure and security solutions designed for the future.
             </p>
           </motion.div>
