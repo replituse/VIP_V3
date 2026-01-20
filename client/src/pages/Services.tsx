@@ -108,7 +108,7 @@ export default function Services() {
 
             {/* Content Side */}
             <div className="flex-1 w-full">
-              <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">Solution {String(index + 1).padStart(2, '0')}</span>
+              <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">Service {String(index + 1).padStart(2, '0')}</span>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">{service.title}</h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 {service.description}
