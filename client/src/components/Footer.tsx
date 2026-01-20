@@ -95,7 +95,7 @@ export function Footer() {
               ].map((service) => (
                 <li key={service}>
                   <Link href="/services">
-                    <span className="text-white/80 hover:text-white transition-colors cursor-pointer text-[16px]">
+                    <span className="text-white/80 hover:text-[#3b82f6] transition-colors cursor-pointer text-[16px]">
                       {service}
                     </span>
                   </Link>

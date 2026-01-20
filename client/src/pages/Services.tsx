@@ -76,7 +76,7 @@ export default function Services() {
           />
         </div>
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Our Solutions</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Our Services</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Comprehensive technology services tailored to secure, connect, and empower your enterprise.
           </p>
