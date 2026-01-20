@@ -11,15 +11,20 @@ import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 
 // Frontend validation schema
 const contactSchema = z.object({
-  name: z.string().min(1, "Name is required").regex(/^[A-Za-z\s]+$/, "Name can only contain letters"),
-  phone: z.string().min(1, "Phone number is required").regex(/^\+?[\d\s-]+$/, "Phone must be a valid number"),
+  name: z.string()
+    .min(1, "Name is required")
+    .regex(/^[A-Za-z\s]+$/, "Name can only contain letters"),
+  phone: z.string()
+    .length(10, "Phone must be 10 digits")
+    .regex(/^\d+$/, "Phone must be numbers only"),
   email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  message: z.string().optional(),
 });
 
 export default function Contact() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactMessageInput>({
+  const { register, handleSubmit, formState: { errors, isDirty }, reset, watch } = useForm<ContactMessageInput>({
     resolver: zodResolver(contactSchema),
+    mode: "onChange", // Enable live validation
   });
 
   const { mutate, isPending } = useSubmitContact();
@@ -166,14 +171,13 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium ml-1">Message</label>
+                <label className="text-sm font-medium ml-1">Message (Optional)</label>
                 <textarea 
                   {...register("message")}
                   rows={5}
                   placeholder="How can we help you?"
                   className="w-full bg-secondary/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-foreground/50 resize-none"
                 />
-                {errors.message && <p className="text-destructive text-xs ml-1">{errors.message.message}</p>}
               </div>
 
               <button 
