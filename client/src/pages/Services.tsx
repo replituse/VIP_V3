@@ -6,6 +6,15 @@ import { Link } from "wouter";
 import { services } from "@/lib/services-data";
 import radarGif from "@assets/CCTV_Camera_1768636156008.gif";
 
+import projectNetwork from "@assets/generated_images/modern_office_network_infrastructure_installation_photo.png";
+import projectAV from "@assets/generated_images/commercial_building_smart_lighting_and_av_installation_photo.png";
+import projectSecurity from "@assets/generated_images/industrial_facility_security_and_cctv_installation_photo.png";
+import projectSmartCity from "@assets/generated_images/smart_city_traffic_monitoring_system_installation_photo.png";
+import projectHealthcare from "@assets/generated_images/modern_health_clinic_digital_medical_system_installation_photo.png";
+import projectEducation from "@assets/generated_images/university_smart_lecture_hall_av_and_lighting_project_photo.png";
+import projectRetail from "@assets/generated_images/luxury_retail_smart_store_security_and_av_project_photo.png";
+import projectDataCenter from "@assets/generated_images/large_data_center_networking_and_server_setup_photo.png";
+
 export default function Services() {
   return (
     <div className="min-h-screen bg-background text-foreground relative">
@@ -86,6 +95,45 @@ export default function Services() {
           </motion.div>
         ))}
       </div>
+
+      {/* PROJECTS SECTION (duplicated from Home.tsx) */}
+      <section className="py-24 bg-secondary/10 relative overflow-hidden">
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-poppins tracking-tight uppercase">Completed <span className="text-[#3b82f6]">Projects</span></h2>
+            <p className="text-white text-lg">A showcase of our successfully delivered infrastructure and security solutions.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Enterprise Networking", img: projectNetwork, location: "Corporate Plaza" },
+              { title: "Smart Hotel AV", img: projectAV, location: "Grand Regency" },
+              { title: "Industrial Security", img: projectSecurity, location: "Manufacturing Hub" },
+              { title: "Smart City Traffic", img: projectSmartCity, location: "Urban Center" },
+              { title: "Healthcare Systems", img: projectHealthcare, location: "Global Medical Center" },
+              { title: "Smart Education AV", img: projectEducation, location: "National University" },
+              { title: "Retail Tech Solutions", img: projectRetail, location: "Luxury Mall" },
+              { title: "Cloud Data Center", img: projectDataCenter, location: "Tech Park" },
+            ].map((project, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group relative bg-[#0d1526] rounded-3xl overflow-hidden border border-white/5 shadow-2xl aspect-[4/5]"
+              >
+                <img src={project.img} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d1526] via-[#0d1526]/20 to-transparent opacity-90" />
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <p className="text-[#3b82f6] text-xs font-bold uppercase tracking-widest mb-2">{project.location}</p>
+                  <h3 className="text-xl font-bold text-white uppercase tracking-tight">{project.title}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
