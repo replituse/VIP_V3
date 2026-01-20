@@ -56,7 +56,7 @@ export default function Contact() {
         </div>
         
         <div className="container px-4 md:px-6 mx-auto relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Get In Touch</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Get In <span className="text-[#3b82f6]">Touch</span></h1>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             Have a project in mind? Contact us for a consultation or quote. Our team is ready to assist you.
           </p>
